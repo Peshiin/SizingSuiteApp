@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="SizingSuiteControlLibrary.Views.Piping.PipingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SizingSuiteControlLibrary.Views.Piping"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Grid x:Name="CaseGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition x:Name="CaseNameColumn"/>
+                    <ColumnDefinition x:Name="FlowRateColumn"/>
+                    <ColumnDefinition x:Name="PressureColumn"/>
+                    <ColumnDefinition x:Name="TemperatureColumn"/>
+                    <ColumnDefinition x:Name="EnthalpyColumn"/>
+                    <ColumnDefinition x:Name="DensityColumn"/>
+                    <ColumnDefinition x:Name="QualityColumn"/>
+                    <ColumnDefinition x:Name="BufferColumn"/>
+                    <ColumnDefinition x:Name="DNColumn"/>
+                    <ColumnDefinition x:Name="DiameterColumn"/>
+                    <ColumnDefinition x:Name="WallThicknessColumn"/>
+                    <ColumnDefinition x:Name="SelectedVelocityColumn"/>
+                    <ColumnDefinition x:Name="ActualVelocityColumn"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="CrossNumberTextBlock" Text="Cross number" Grid.Row="0" Grid.Column="0"/>
+                <TextBlock x:Name="FlowRateTextBlock" Text="Flow rate" Grid.Row="0" Grid.Column="1"/>
+                <TextBlock x:Name="PressureTextBlock" Text="Pressure" Grid.Row="0" Grid.Column="2"/>
+                <TextBlock x:Name="TemperatureTextBlock" Text="Temperature" Grid.Row="0" Grid.Column="3"/>
+                <TextBlock x:Name="EnthalpyTextBlock" Text="Enthalpy" Grid.Row="0" Grid.Column="4"/>
+                <TextBlock x:Name="DensityTextBlock" Text="Density" Grid.Row="0" Grid.Column="5"/>
+                <TextBlock x:Name="QualityTextBlock" Text="Vapour fraction" Grid.Row="0" Grid.Column="6"/>
+                <TextBlock x:Name="BufferTextBlock" Text="Buffer / reserve" Grid.Row="0" Grid.Column="7"/>
+                <TextBlock x:Name="DNTextBlock" Text="DN" Grid.Row="0" Grid.Column="8"/>
+                <TextBlock x:Name="DiameterTextBlock" Text="Outer diameter" Grid.Row="0" Grid.Column="9"/>
+                <TextBlock x:Name="WallThicknessTextBlock" Text="Wall thickness" Grid.Row="0" Grid.Column="10"/>
+                <TextBlock x:Name="SelectedVelocityTextBlock" Text="Selected velocity" Grid.Row="0" Grid.Column="11"/>
+                <TextBlock x:Name="ActualVelocityTextBlock" Text="Actual velocity" Grid.Row="0" Grid.Column="12"/>
+
+                <ComboBox x:Name="FlowRateUnitCBox" Grid.Row="1" Grid.Column="1"
+                          DisplayMemberPath="Unit"
+                          SelectedValuePath="QuantityName"/>
+                <ComboBox x:Name="PressureUnitCBox" Grid.Row="1" Grid.Column="2"
+                          DisplayMemberPath="Unit"/>
+                <ComboBox x:Name="TemperatureUnitCBox" Grid.Row="1" Grid.Column="3"
+                          DisplayMemberPath="Unit"/>
+                <ComboBox x:Name="EnthalpyUnitCBox" Grid.Row="1" Grid.Column="4"
+                          DisplayMemberPath="Unit"/>
+                <ComboBox x:Name="DensityUnitCBox" Grid.Row="1" Grid.Column="5"
+                          DisplayMemberPath="Unit"/>
+                <ComboBox x:Name="SelectedVelocityUnitCBox" Grid.Row="1" Grid.Column="11"
+                          DisplayMemberPath="Unit"/>
+                <ComboBox x:Name="ActualVelocityUnitCBox" Grid.Row="1" Grid.Column="12"
+                          DisplayMemberPath="Unit"/>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

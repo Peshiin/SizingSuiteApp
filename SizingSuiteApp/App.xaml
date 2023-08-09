@@ -1,0 +1,15 @@
+﻿<Application x:Class="SizingSuiteApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:SizingSuiteApp"
+             xmlns:controllibrary="clr-namespace:SizingSuiteControlLibrary;assembly=SizingSuiteControlLibrary"
+             xmlns:views="clr-namespace:SizingSuiteControlLibrary.Views;assembly=SizingSuiteControlLibrary"
+             xmlns:viewmodels="clr-namespace:SizingSuiteApp.ViewModels;assembly=SizingSuiteControlLibrary"
+             xmlns:safetyvalves="clr-namespace:SizingSuiteApp.ViewModels.SafetyValve;assembly=SizingSuiteControlLibrary"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type safetyvalves:APISteamReliefViewModel}">
+            <views:APISteamReliefView/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
