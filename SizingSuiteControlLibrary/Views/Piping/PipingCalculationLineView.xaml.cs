@@ -1,11 +1,5 @@
-﻿using EngineeringUnits.Units;
-using SizingSuiteApp.ViewModels;
-using SizingSuiteControlLibrary.ViewModels.Piping;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,16 +16,13 @@ using System.Windows.Shapes;
 namespace SizingSuiteControlLibrary.Views.Piping
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for PipingCalculationLineView.xaml
     /// </summary>
-    public partial class PipingView : UserControl
+    public partial class PipingCalculationLineView : UserControl
     {
-        public PipingViewModel PipingViewModel = new PipingViewModel();
-
-        public PipingView()
+        public PipingCalculationLineView()
         {
             InitializeComponent();
-            DataContext = PipingViewModel.UnitManager;
         }
     }
 }

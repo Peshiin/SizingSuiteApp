@@ -52,20 +52,40 @@
                 <TextBlock x:Name="ActualVelocityTextBlock" Text="Actual velocity" Grid.Row="0" Grid.Column="12"/>
 
                 <ComboBox x:Name="FlowRateUnitCBox" Grid.Row="1" Grid.Column="1"
+                          ItemsSource="{Binding FlowRateUnits}"
+                          SelectedItem="{Binding FlowRateSelectedUnit}"
                           DisplayMemberPath="Unit"
                           SelectedValuePath="QuantityName"/>
                 <ComboBox x:Name="PressureUnitCBox" Grid.Row="1" Grid.Column="2"
-                          DisplayMemberPath="Unit"/>
+                          ItemsSource="{Binding PressureUnits}"
+                          SelectedItem="{Binding PressureSelectedUnit}"
+                          DisplayMemberPath="Unit"
+                          SelectedValuePath="QuantityName"/>
                 <ComboBox x:Name="TemperatureUnitCBox" Grid.Row="1" Grid.Column="3"
-                          DisplayMemberPath="Unit"/>
+                          ItemsSource="{Binding TemperatureUnits}"
+                          SelectedItem="{Binding TemperatureSelectedUnit}"
+                          DisplayMemberPath="Unit"
+                          SelectedValuePath="QuantityName"/>
                 <ComboBox x:Name="EnthalpyUnitCBox" Grid.Row="1" Grid.Column="4"
-                          DisplayMemberPath="Unit"/>
+                          ItemsSource="{Binding EnthalpyUnits}"
+                          SelectedItem="{Binding EnthalpySelectedUnit}"
+                          DisplayMemberPath="Unit"
+                          SelectedValuePath="QuantityName"/>
                 <ComboBox x:Name="DensityUnitCBox" Grid.Row="1" Grid.Column="5"
-                          DisplayMemberPath="Unit"/>
+                          ItemsSource="{Binding DensityUnits}"
+                          SelectedItem="{Binding DensitySelectedUnit}"
+                          DisplayMemberPath="Unit"
+                          SelectedValuePath="QuantityName"/>
                 <ComboBox x:Name="SelectedVelocityUnitCBox" Grid.Row="1" Grid.Column="11"
-                          DisplayMemberPath="Unit"/>
+                          ItemsSource="{Binding VelocityUnits}"
+                          SelectedItem="{Binding SelectedVelocitySelectedUnit}"
+                          DisplayMemberPath="Unit"
+                          SelectedValuePath="QuantityName"/>
                 <ComboBox x:Name="ActualVelocityUnitCBox" Grid.Row="1" Grid.Column="12"
-                          DisplayMemberPath="Unit"/>
+                          ItemsSource="{Binding VelocityUnits}"
+                          SelectedItem="{Binding ActualVelocitySelectedUnit}"
+                          DisplayMemberPath="Unit"
+                          SelectedValuePath="QuantityName"/>
             </Grid>
         </StackPanel>
 

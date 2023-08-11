@@ -229,10 +229,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\UpdateViewCommand.cs" />
+    <Compile Include="Model\Piping\UnitManager.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Piping\PipingViewModel.cs" />
     <Compile Include="ViewModels\SafetyValve\APISteamReliefViewModel.cs" />
+    <Compile Include="Views\Piping\PipingCalculationLineView.xaml.cs">
+      <DependentUpon>PipingCalculationLineView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Piping\PipingView.xaml.cs">
       <DependentUpon>PipingView.xaml</DependentUpon>
     </Compile>
@@ -248,6 +252,10 @@
       <DependentUpon>MainUserControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Piping\PipingCalculationLineView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Piping\PipingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -283,9 +291,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\Piping\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SharpFluids.3.0.402\build\SharpFluids.targets" Condition="Exists('..\packages\SharpFluids.3.0.402\build\SharpFluids.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
