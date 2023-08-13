@@ -40,6 +40,9 @@
     <Reference Include="Apache.Arrow, Version=2.0.0.0, Culture=neutral, PublicKeyToken=204f54e5a45c07df, processorArchitecture=MSIL">
       <HintPath>..\packages\Apache.Arrow.2.0.0\lib\netstandard1.3\Apache.Arrow.dll</HintPath>
     </Reference>
+    <Reference Include="CsvHelper, Version=30.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.30.0.1\lib\net47\CsvHelper.dll</HintPath>
+    </Reference>
     <Reference Include="EngineeringUnits, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EngineeringUnits.1.1.620\lib\netstandard2.0\EngineeringUnits.dll</HintPath>
     </Reference>
@@ -48,6 +51,9 @@
     </Reference>
     <Reference Include="Jace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Jace.1.0.0\lib\netstandard1.6\Jace.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>

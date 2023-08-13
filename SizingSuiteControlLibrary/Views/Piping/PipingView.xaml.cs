@@ -1,11 +1,14 @@
 ﻿using EngineeringUnits.Units;
 using SizingSuiteApp.ViewModels;
+using SizingSuiteControlLibrary.Model;
+using SizingSuiteControlLibrary.Model.Piping;
 using SizingSuiteControlLibrary.ViewModels.Piping;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +35,19 @@ namespace SizingSuiteControlLibrary.Views.Piping
         {
             InitializeComponent();
             DataContext = PipingViewModel.UnitManager;
+            CrossSelectionCBox.DataContext = PipingViewModel;
+            CalculationItemsControl.DataContext = PipingViewModel;
+        }
+
+        private void LoadCrossesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = FileHandler.OpenDialog();
+            PipingViewModel.LoadCrosses(filePath);      
+        }
+
+        private void CrossSelectionCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            PipingViewModel.SelectedCross = (CalculationCross)CrossSelectionCBox.SelectedItem;
         }
     }
 }

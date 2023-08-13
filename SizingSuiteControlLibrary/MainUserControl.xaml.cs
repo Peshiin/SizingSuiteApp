@@ -1,5 +1,6 @@
 ﻿using SizingSuiteApp.ViewModels;
 using SizingSuiteApp.ViewModels.SafetyValve;
+using SizingSuiteControlLibrary.Model;
 using SizingSuiteControlLibrary.Views;
 using SizingSuiteControlLibrary.Views.Piping;
 using System;
@@ -42,14 +43,10 @@ namespace SizingSuiteControlLibrary
             contentControl.Content = ControlSelection.SelectedValue;
         }
 
-        ///// <summary>
-        ///// Invokes change of class property
-        ///// </summary>
-        ///// <param name="property"></param>
-        //protected void InvokeChange(string property)
+        //private void TestButton_Click(object sender, RoutedEventArgs e)
         //{
-        //    if (PropertyChanged != null)
-        //        PropertyChanged(this, new PropertyChangedEventArgs(property));
+        //    ExcelToXMLConverter convertor = new ExcelToXMLConverter();
+        //    convertor.ExcelToDatatableToXml();
         //}
     }
 }

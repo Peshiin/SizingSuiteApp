@@ -5,8 +5,54 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SizingSuiteControlLibrary.Views.Piping"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="25" d:DesignWidth="800">
+    <Grid x:Name="CaseGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="CaseNameColumn"/>
+            <ColumnDefinition x:Name="FlowRateColumn"/>
+            <ColumnDefinition x:Name="PressureColumn"/>
+            <ColumnDefinition x:Name="TemperatureColumn"/>
+            <ColumnDefinition x:Name="EnthalpyColumn"/>
+            <ColumnDefinition x:Name="DensityColumn"/>
+            <ColumnDefinition x:Name="QualityColumn"/>
+            <ColumnDefinition x:Name="NoOfLinesColumn"/>
+            <ColumnDefinition x:Name="ReserveColumn"/>
+            <ColumnDefinition x:Name="DNColumn"/>
+            <ColumnDefinition x:Name="DiameterColumn"/>
+            <ColumnDefinition x:Name="WallThicknessColumn"/>
+            <ColumnDefinition x:Name="SelectedVelocityColumn"/>
+            <ColumnDefinition x:Name="ActualVelocityColumn"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="CaseNameTextBlock" Grid.Column="0"
+                   Text="{Binding Name}" />
+        <TextBox x:Name="FlowRateTBox" Grid.Column="1"
+                 Text="{Binding FlowRate}"/>
+        <TextBox x:Name="PressureTBox" Grid.Column="2"
+                 Text="{Binding Pressure}"/>
+        <TextBox x:Name="TemperatureTBox" Grid.Column="3"
+                 Text="{Binding Temperature}"/>
+        <TextBox x:Name="EnthalpyTBox" Grid.Column="4"
+                 Text="{Binding Enthalpy}"/>
+        <TextBox x:Name="DensityTBox" Grid.Column="5"
+                 Text="{Binding Density}"/>
+        <TextBox x:Name="QualityTBox" Grid.Column="6"
+                 Text="{Binding Quality}"/>
+        <TextBox x:Name="NoOfLinesTBox" Grid.Column="7"
+                 Text="{Binding NoOfLines}"/>
+        <TextBox x:Name="ReserveTBox" Grid.Column="8"
+                 Text="{Binding Reserve}"/>
+        <TextBox x:Name="DNTBox" Grid.Column="9"
+                 Text="{Binding DN}"/>
+        <TextBox x:Name="OuterDiameterTBox" Grid.Column="10"
+                 Text="{Binding OuterDiameter}"/>
+        <TextBox x:Name="WallThicknessTBox" Grid.Column="11"
+                 Text="{Binding WallThickness}"/>
+        <TextBox x:Name="SelectedVelocityTBox" Grid.Column="12"
+                 Text="{Binding SelectedVelocity}"/>
+        <TextBox x:Name="ActualVelocityTBox" Grid.Column="13"
+                 Text="{Binding ActualVelocity}"/>
     </Grid>
 </UserControl>

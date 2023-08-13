@@ -15,13 +15,16 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+        <!--<Button x:Name="TestButton" Grid.Row="1"
+                Click="TestButton_Click"/>-->
+
         <ComboBox x:Name="ControlSelection" Grid.Row="0"
                   ItemsSource="{Binding Path=ControlList}"
                   DisplayMemberPath="Value"
                   SelectedValuePath="Key"
                   SelectionChanged="ControlSelection_SelectionChanged"/>
 
-        <ContentControl x:Name="contentControl" Grid.Row="1" Content="{Binding SelectedControl}"/>
+        <ContentControl x:Name="contentControl" Grid.Row="1"/>
         
     </Grid>
 </UserControl>
