@@ -1,14 +1,17 @@
-﻿using EngineeringUnits.Units;
+﻿using EngineeringUnits;
+using EngineeringUnits.Units;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SizingSuiteControlLibrary.Model.Piping
 {
-    public class UnitManager
+    public class UnitManager: INotifyPropertyChanged
     {
         public ObservableCollection<MassFlowUnit> FlowRateUnits { get; private set; }
         public ObservableCollection<PressureUnit> PressureUnits { get; private set; }
@@ -17,14 +20,112 @@ namespace SizingSuiteControlLibrary.Model.Piping
         public ObservableCollection<DensityUnit> DensityUnits { get; private set; }
         public ObservableCollection<SpeedUnit> VelocityUnits { get; private set; }
 
-        public MassFlowUnit FlowRateSelectedUnit { get; set; }
-        public PressureUnit PressureSelectedUnit { get; set; }
-        public TemperatureUnit TemperatureSelectedUnit { get; set; }
-        public EnthalpyUnit EnthalpySelectedUnit { get; set; }
-        public DensityUnit DensitySelectedUnit { get; set; }
-        public SpeedUnit SelectedVelocitySelectedUnit { get; set; }
-        public SpeedUnit ActualVelocitySelectedUnit { get; set; }
+        private MassFlowUnit _flowRateSelectedUnit;
+        public MassFlowUnit FlowRateSelectedUnit
+        {
+            get 
+            { 
+                return _flowRateSelectedUnit;
+            }
+            set 
+            { 
+                _flowRateSelectedUnit = value;
+                InvokeChange(nameof(FlowRateSelectedUnit));
+            }
+        }
 
+        private PressureUnit _pressureSelectedUnit;
+        public PressureUnit PressureSelectedUnit
+        {
+            get 
+            {
+                return _pressureSelectedUnit;
+            }
+            set
+            { 
+                _pressureSelectedUnit = value;
+                InvokeChange(nameof(PressureSelectedUnit));
+            }
+        }
+
+        private TemperatureUnit _temperatureSelectedUnit;
+        public TemperatureUnit TemperatureSelectedUnit
+        {
+            get
+            {
+                return _temperatureSelectedUnit;
+            }
+            set
+            {
+                _temperatureSelectedUnit = value;
+                InvokeChange(nameof(TemperatureSelectedUnit));
+            }
+        }
+
+        private EnthalpyUnit _enthalpySelectedUnit;
+        public EnthalpyUnit EnthalpySelectedUnit
+        {
+            get
+            {
+                return _enthalpySelectedUnit;
+            }
+            set
+            {
+                _enthalpySelectedUnit = value;
+                InvokeChange(nameof(EnthalpySelectedUnit));
+            }
+        }
+
+        private DensityUnit _densitySelectedUnit;
+        public DensityUnit DensitySelectedUnit
+        {
+            get
+            {
+                return _densitySelectedUnit;
+            }
+            set
+            {
+                _densitySelectedUnit = value;
+                InvokeChange(nameof(DensitySelectedUnit));
+            }
+        }
+
+        private SpeedUnit _selectedVelocitySelectedUnit;
+        public SpeedUnit SelectedVelocitySelectedUnit
+        {
+            get
+            {
+                return _selectedVelocitySelectedUnit;
+            }
+            set
+            {
+                _selectedVelocitySelectedUnit = value;
+                InvokeChange(nameof(SelectedVelocitySelectedUnit));
+            }
+        }
+
+        private SpeedUnit _actualVelocityUnit;
+        public SpeedUnit ActualVelocitySelectedUnit
+        {
+            get
+            {
+                return _actualVelocityUnit;
+            }
+            set
+            {
+                _actualVelocityUnit = value;
+                InvokeChange(nameof(ActualVelocitySelectedUnit));
+            }
+        }
+
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void InvokeChange(string property)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+        #endregion
 
         #region Constructor
         public UnitManager()

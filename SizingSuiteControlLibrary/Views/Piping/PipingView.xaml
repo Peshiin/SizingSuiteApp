@@ -37,7 +37,7 @@
             </Grid>
         </StackPanel>
         
-        <StackPanel Grid.Row="0" Grid.Column="1">
+        <StackPanel x:Name="Header" Grid.Row="0" Grid.Column="1">
             <Grid x:Name="CaseGrid">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -61,7 +61,7 @@
                     <ColumnDefinition x:Name="ActualVelocityColumn"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock x:Name="CaseNameTextBlock" Text="Cross number" Grid.Row="0" Grid.Column="0"/>
+                <TextBlock x:Name="CaseNameTextBlock" Text="Case name" Grid.Row="0" Grid.Column="0"/>
                 <TextBlock x:Name="FlowRateTextBlock" Text="Flow rate" Grid.Row="0" Grid.Column="1"/>
                 <TextBlock x:Name="PressureTextBlock" Text="Pressure" Grid.Row="0" Grid.Column="2"/>
                 <TextBlock x:Name="TemperatureTextBlock" Text="Temperature" Grid.Row="0" Grid.Column="3"/>
@@ -76,27 +76,27 @@
                 <TextBlock x:Name="SelectedVelocityTextBlock" Text="Selected velocity" Grid.Row="0" Grid.Column="12"/>
                 <TextBlock x:Name="ActualVelocityTextBlock" Text="Actual velocity" Grid.Row="0" Grid.Column="13"/>
 
-                <ComboBox x:Name="FlowRateUnitCBox" Grid.Row="1" Grid.Column="0"
+                <ComboBox x:Name="FlowRateUnitCBox" Grid.Row="1" Grid.Column="1"
                           ItemsSource="{Binding FlowRateUnits}"
                           SelectedItem="{Binding FlowRateSelectedUnit}"
                           DisplayMemberPath="Unit"
                           SelectedValuePath="QuantityName"/>
-                <ComboBox x:Name="PressureUnitCBox" Grid.Row="1" Grid.Column="1"
+                <ComboBox x:Name="PressureUnitCBox" Grid.Row="1" Grid.Column="2"
                           ItemsSource="{Binding PressureUnits}"
                           SelectedItem="{Binding PressureSelectedUnit}"
                           DisplayMemberPath="Unit"
                           SelectedValuePath="QuantityName"/>
-                <ComboBox x:Name="TemperatureUnitCBox" Grid.Row="1" Grid.Column="2"
+                <ComboBox x:Name="TemperatureUnitCBox" Grid.Row="1" Grid.Column="3"
                           ItemsSource="{Binding TemperatureUnits}"
                           SelectedItem="{Binding TemperatureSelectedUnit}"
                           DisplayMemberPath="Unit"
                           SelectedValuePath="QuantityName"/>
-                <ComboBox x:Name="EnthalpyUnitCBox" Grid.Row="1" Grid.Column="3"
+                <ComboBox x:Name="EnthalpyUnitCBox" Grid.Row="1" Grid.Column="4"
                           ItemsSource="{Binding EnthalpyUnits}"
                           SelectedItem="{Binding EnthalpySelectedUnit}"
                           DisplayMemberPath="Unit"
                           SelectedValuePath="QuantityName"/>
-                <ComboBox x:Name="DensityUnitCBox" Grid.Row="1" Grid.Column="4"
+                <ComboBox x:Name="DensityUnitCBox" Grid.Row="1" Grid.Column="5"
                           ItemsSource="{Binding DensityUnits}"
                           SelectedItem="{Binding DensitySelectedUnit}"
                           DisplayMemberPath="Unit"
@@ -141,31 +141,31 @@
                                 <TextBlock x:Name="CaseNameTextBlock" Grid.Column="0"
                                            Text="{Binding Name}" />
                                 <TextBox x:Name="FlowRateTBox" Grid.Column="1"
-                                         Text="{Binding FlowRate}"/>
+                                         Text="{Binding flowRate, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="PressureTBox" Grid.Column="2"
-                                         Text="{Binding Pressure}"/>
+                                         Text="{Binding pressure, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="TemperatureTBox" Grid.Column="3"
-                                         Text="{Binding Temperature}"/>
+                                         Text="{Binding temperature, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="EnthalpyTBox" Grid.Column="4"
-                                         Text="{Binding Enthalpy}"/>
+                                         Text="{Binding enthalpy, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="DensityTBox" Grid.Column="5"
-                                         Text="{Binding Density}"/>
+                                         Text="{Binding density, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="QualityTBox" Grid.Column="6"
-                                         Text="{Binding Quality}"/>
+                                         Text="{Binding quality, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="NoOfLinesTBox" Grid.Column="7"
-                                        Text="{Binding NoOfLines}"/>
+                                        Text="{Binding NoOfLines, StringFormat={}{0:0}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="ReserveTBox" Grid.Column="8"
                                         Text="{Binding Reserve}"/>
                                 <TextBox x:Name="DNTBox" Grid.Column="9"
                                         Text="{Binding DN}"/>
                                 <TextBox x:Name="OuterDiameterTBox" Grid.Column="10"
-                                        Text="{Binding OuterDiameter}"/>
+                                        Text="{Binding OuterDiameter, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="WallThicknessTBox" Grid.Column="11"
-                                         Text="{Binding WallThickness}"/>
+                                         Text="{Binding WallThickness, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="SelectedVelocityTBox" Grid.Column="12"
-                                         Text="{Binding SelectedVelocity}"/>
+                                         Text="{Binding SelectedVelocity, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="ActualVelocityTBox" Grid.Column="13"
-                                         Text="{Binding ActualVelocity}"/>
+                                         Text="{Binding ActualVelocity, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

@@ -29,30 +29,30 @@
         <TextBlock x:Name="CaseNameTextBlock" Grid.Column="0"
                    Text="{Binding Name}" />
         <TextBox x:Name="FlowRateTBox" Grid.Column="1"
-                 Text="{Binding FlowRate}"/>
+                 Text="{Binding FlowRate, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
         <TextBox x:Name="PressureTBox" Grid.Column="2"
-                 Text="{Binding Pressure}"/>
+                 Text="{Binding Pressure, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
         <TextBox x:Name="TemperatureTBox" Grid.Column="3"
-                 Text="{Binding Temperature}"/>
+                 Text="{Binding Temperature, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
         <TextBox x:Name="EnthalpyTBox" Grid.Column="4"
-                 Text="{Binding Enthalpy}"/>
+                 Text="{Binding Enthalpy, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
         <TextBox x:Name="DensityTBox" Grid.Column="5"
-                 Text="{Binding Density}"/>
+                 Text="{Binding Density, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
         <TextBox x:Name="QualityTBox" Grid.Column="6"
-                 Text="{Binding Quality}"/>
+                 Text="{Binding Quality, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
         <TextBox x:Name="NoOfLinesTBox" Grid.Column="7"
-                 Text="{Binding NoOfLines}"/>
+                 Text="{Binding NoOfLines, StringFormat={}{0:0}, ConverterCulture=cs-CZ}"/>
         <TextBox x:Name="ReserveTBox" Grid.Column="8"
-                 Text="{Binding Reserve}"/>
+                 Text="{Binding Reserve, StringFormat={}{0:0.##}, ConverterCulture=cs-CZ}"/>
         <TextBox x:Name="DNTBox" Grid.Column="9"
                  Text="{Binding DN}"/>
         <TextBox x:Name="OuterDiameterTBox" Grid.Column="10"
-                 Text="{Binding OuterDiameter}"/>
+                 Text="{Binding OuterDiameter, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
         <TextBox x:Name="WallThicknessTBox" Grid.Column="11"
-                 Text="{Binding WallThickness}"/>
+                 Text="{Binding WallThickness, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
         <TextBox x:Name="SelectedVelocityTBox" Grid.Column="12"
-                 Text="{Binding SelectedVelocity}"/>
+                 Text="{Binding SelectedVelocity, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
         <TextBox x:Name="ActualVelocityTBox" Grid.Column="13"
-                 Text="{Binding ActualVelocity}"/>
+                 Text="{Binding ActualVelocity, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
     </Grid>
 </UserControl>

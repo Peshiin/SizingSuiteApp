@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits.Units;
+using Microsoft.VisualBasic.FileIO;
 using SizingSuiteApp.ViewModels;
 using SizingSuiteControlLibrary.Model;
 using SizingSuiteControlLibrary.Model.Piping;
@@ -7,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -58,17 +61,43 @@ namespace SizingSuiteControlLibrary.ViewModels.Piping
         #endregion
 
         #region Methods
-        public void LoadCrosses(string filepath)
+        public void LoadCrosses(string filepath, string delimiter)
         {
-            List<CalculationCrossCase> csvInput =
-                FileHandler.LoadCSVCollection<CalculationCrossCase, CalculationCrossCaseMap>(filepath).ToList();
-            IEnumerable<string> crossNames = csvInput.Select(x => x.CrossName).Distinct();
-            ObservableCollection<CalculationCrossCase> caseList;
-
-            foreach (string name in crossNames)
+            using (TextFieldParser parser = new TextFieldParser(filepath))
             {
-                caseList = new ObservableCollection<CalculationCrossCase>(csvInput.Where(x => x.CrossName == name));
-                Crosses.Add(new CalculationCross(name, "", caseList));
+                ObservableCollection<CalculationCrossCase> caseList =
+                    new ObservableCollection<CalculationCrossCase>();
+                CalculationCrossCase crossCase;
+                CultureInfo cultureInfo = CultureInfo.CreateSpecificCulture("en-US");
+
+                parser.TextFieldType = FieldType.Delimited;
+                parser.SetDelimiters(delimiter);
+                while (!parser.EndOfData)
+                {
+                    //Processing row
+                    string[] fields = parser.ReadFields();
+
+                    // ignores header
+                    if (parser.LineNumber <= 2)
+                        continue;
+
+                    // if cross name does not exist in Crosses
+                    if (!Crosses.Any(x => x.Name == fields[0]))
+                    {
+                        caseList = new ObservableCollection<CalculationCrossCase>();
+                        Crosses.Add(new CalculationCross(fields[0], fields[1], caseList));
+                    }
+
+                    crossCase = new CalculationCrossCase(
+                        fields[0],
+                        fields[1],
+                        double.Parse(fields[2], cultureInfo),
+                        double.Parse(fields[3], cultureInfo),
+                        double.Parse(fields[4], cultureInfo),
+                        double.Parse(fields[5], cultureInfo),
+                        UnitManager);
+                    caseList.Add(crossCase);
+                }
             }
             InvokeChange(nameof(Crosses));
         }
