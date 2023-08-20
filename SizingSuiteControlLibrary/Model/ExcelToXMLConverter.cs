@@ -15,51 +15,46 @@ using SizingSuiteControlLibrary.Model.Piping;
 using System.Windows.Shapes;
 using Microsoft.Office.Interop.Excel;
 using System.IO.Pipes;
+using EngineeringUnits;
 
 namespace SizingSuiteControlLibrary.Model
 {
     public class ExcelToXMLConverter
     {
-        public void ExcelToDatatableToXml()
+        public void BasePipesExcelToXML()
         {
-            string path = "C:\\Users\\pechm\\Desktop\\Potrubí\\Rozměry a hmotnosti podle EN 10220.xlsx";
-            string output = "Pipes.xml";
+            string path = @"C:\Users\pechm\Desktop\Potrubí\Rozměry a hmotnosti podle EN 10220.xlsx";
+            string output = @"C:\Users\pechm\Desktop\Other Projects\SizingSuiteApp\SizingSuiteControlLibrary\Model\Piping\Pipes.xml";
             Application excel = new Application();
             Workbook wb = excel.Workbooks.Open(path);
             Worksheet sheet = wb.Worksheets["List1"];
 
-            List<BasePipe> Pipes = new List<BasePipe>();
-            List<double> WT;
-            string[] wtArray;
+            List<double> WTs;
+            List<DN> DNs = new List<DN>();
             string availableThickness;
-            string strDN;
-            int DN;
-            string strOD;
-            double OD;
 
-            for(int i = 2; i <= 36; i++)
+            for(int i = 2; i <= sheet.UsedRange.Rows.Count; i++)
             {
-                WT = new List<double>();
+                WTs = new List<double>();
+
                 availableThickness = sheet.Range["C" + i].Value;
-                wtArray = availableThickness.Split(';');
-                foreach(string wt in wtArray)
-                    WT.Add(double.Parse(wt));
+                foreach(string wt in availableThickness.Split(';'))
+                    WTs.Add(double.Parse(wt));
 
-                //strDN = sheet.Range["A" + i].Value;
-                DN = (int)sheet.Range["A" + i].Value;
-                //strOD = sheet.Range["B" + i].Value;
-                OD = sheet.Range["B" + i].Value;
-
-                Pipes.Add(new BasePipe(BasePipe.PipeStandard.EN, DN, OD, WT));
+                DNs.Add(new DN(
+                    DN.Standards.EN,
+                    (DN.AvailableDNs)sheet.Range["A" + i].Value,
+                    sheet.Range["B" + i].Value,
+                    WTs.AsEnumerable()));
             }
 
             wb.Close();
             excel.Quit();
 
-            XmlSerializer serializer = new XmlSerializer(Pipes.GetType());
+            XmlSerializer serializer = new XmlSerializer(DNs.GetType());
             using (StreamWriter sw = new StreamWriter(output))
             {
-                serializer.Serialize(sw, Pipes);
+                serializer.Serialize(sw, DNs);
             }
         }
     }

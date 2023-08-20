@@ -241,6 +241,9 @@
     <Compile Include="Model\Piping\BasePipe.cs" />
     <Compile Include="Model\Piping\CalculationCross.cs" />
     <Compile Include="Model\Piping\CalculationCrossCase.cs" />
+    <Compile Include="Model\Piping\DN.cs" />
+    <Compile Include="Model\Piping\Pipe.cs" />
+    <Compile Include="Model\Piping\PipeEquations.cs" />
     <Compile Include="Model\Piping\UnitManager.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

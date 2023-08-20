@@ -43,10 +43,10 @@ namespace SizingSuiteControlLibrary
             contentControl.Content = ControlSelection.SelectedValue;
         }
 
-        //private void TestButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    ExcelToXMLConverter convertor = new ExcelToXMLConverter();
-        //    convertor.ExcelToDatatableToXml();
-        //}
+        private void TestButton_Click(object sender, RoutedEventArgs e)
+        {
+            ExcelToXMLConverter convertor = new ExcelToXMLConverter();
+            convertor.BasePipesExcelToXML();
+        }
     }
 }

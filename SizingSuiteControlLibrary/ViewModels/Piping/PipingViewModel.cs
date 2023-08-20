@@ -25,7 +25,7 @@ namespace SizingSuiteControlLibrary.ViewModels.Piping
         public UserControl CalculationControlTemplate = new PipingCalculationLineView();
         public UnitManager UnitManager = new UnitManager();
         public ObservableCollection<CalculationCross> Crosses { get; set; }
-        public ObservableCollection<BasePipe> Pipes { get; set; }
+        public ObservableCollection<DN> DNs { get; set; }
         public CalculationCross SelectedCross
         {
             get
@@ -42,7 +42,8 @@ namespace SizingSuiteControlLibrary.ViewModels.Piping
         #region Constructor
         public PipingViewModel()
         {
-            Pipes = (ObservableCollection<BasePipe>)FileHandler.LoadXMLCollection<BasePipe>("Pipes.xml");
+            string path = @"C:\Users\pechm\Desktop\Other Projects\SizingSuiteApp\SizingSuiteControlLibrary\Model\Piping\Pipes.xml";
+            DNs = (ObservableCollection<DN>)FileHandler.LoadXMLCollection<DN>(path);
             Crosses = new ObservableCollection<CalculationCross>();
         }
         #endregion
@@ -67,29 +68,34 @@ namespace SizingSuiteControlLibrary.ViewModels.Piping
             {
                 ObservableCollection<CalculationCrossCase> caseList =
                     new ObservableCollection<CalculationCrossCase>();
+                CalculationCross cross = new CalculationCross("dummyCross", "", null);
                 CalculationCrossCase crossCase;
                 CultureInfo cultureInfo = CultureInfo.CreateSpecificCulture("en-US");
 
+                long headerRows = 1;
+
                 parser.TextFieldType = FieldType.Delimited;
                 parser.SetDelimiters(delimiter);
+
+                // ignoring header rows
+                for (long i = 0; i < headerRows; i++)
+                    Trace.WriteLine(parser.ReadLine());
+
                 while (!parser.EndOfData)
                 {
                     //Processing row
                     string[] fields = parser.ReadFields();
 
-                    // ignores header
-                    if (parser.LineNumber <= 2)
-                        continue;
-
                     // if cross name does not exist in Crosses
                     if (!Crosses.Any(x => x.Name == fields[0]))
                     {
                         caseList = new ObservableCollection<CalculationCrossCase>();
-                        Crosses.Add(new CalculationCross(fields[0], fields[1], caseList));
+                        cross = new CalculationCross(fields[0], fields[1], caseList);
+                        Crosses.Add(cross);
                     }
 
                     crossCase = new CalculationCrossCase(
-                        fields[0],
+                        cross,
                         fields[1],
                         double.Parse(fields[2], cultureInfo),
                         double.Parse(fields[3], cultureInfo),

@@ -156,8 +156,9 @@
                                         Text="{Binding NoOfLines, StringFormat={}{0:0}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="ReserveTBox" Grid.Column="8"
                                         Text="{Binding Reserve}"/>
-                                <TextBox x:Name="DNTBox" Grid.Column="9"
-                                        Text="{Binding DN}"/>
+                                <ComboBox x:Name="DNCBox" Grid.Column="9"
+                                          ItemsSource="{Binding pipe.AvailableDNs}"
+                                          SelectedItem="{Binding pipe.dn}"/>
                                 <TextBox x:Name="OuterDiameterTBox" Grid.Column="10"
                                         Text="{Binding OuterDiameter, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="WallThicknessTBox" Grid.Column="11"

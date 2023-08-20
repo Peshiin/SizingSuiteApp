@@ -19,8 +19,9 @@ namespace SizingSuiteControlLibrary.Model.Piping
         private Fluid fluid = new Fluid(FluidList.Water);
         public UnitManager UnitManager = new UnitManager();
         public UserControl control;
+        public Pipe pipe { get; set; }
 
-        public string CrossName { get; set; }
+        public CalculationCross Cross { get; set; }
         public string Name { get; set; }
         public double pressure
         { 
@@ -160,9 +161,9 @@ namespace SizingSuiteControlLibrary.Model.Piping
         #endregion
 
         #region Constructor
-        public CalculationCrossCase(string crossName, string name, double pressure, double temperature, double enthalpy, double flowRate, UnitManager unitManager)
+        public CalculationCrossCase(CalculationCross cross, string name, double pressure, double temperature, double enthalpy, double flowRate, UnitManager unitManager)
         {
-            CrossName = crossName;
+            Cross = cross;
             Name = name;
             UnitManager = unitManager;
 
@@ -177,6 +178,8 @@ namespace SizingSuiteControlLibrary.Model.Piping
             control.DataContext = this;
 
             UnitManager.PropertyChanged += UnitManager_PropertyChanged;
+
+            var x = new DN().availableWallThickness;
         }
         #endregion
     }

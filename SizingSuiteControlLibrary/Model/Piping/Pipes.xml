@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfBasePipe xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <BasePipe>
+<ArrayOfDN xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>6</DN>
-    <OD>10.2</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN6</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>10.2</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>0.5</double>
       <double>0.6</double>
       <double>0.8</double>
@@ -17,15 +19,16 @@
       <double>2</double>
       <double>2.3</double>
       <double>2.6</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>8</DN>
-    <OD>13.5</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN8</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>13.5</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>0.5</double>
       <double>0.6</double>
       <double>0.8</double>
@@ -37,15 +40,16 @@
       <double>2</double>
       <double>2.3</double>
       <double>2.6</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>10</DN>
-    <OD>17.2</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN10</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>17.2</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>0.5</double>
       <double>0.6</double>
       <double>0.8</double>
@@ -57,15 +61,16 @@
       <double>2</double>
       <double>2.3</double>
       <double>2.6</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>15</DN>
-    <OD>21.3</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN15</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>21.3</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>0.5</double>
       <double>0.6</double>
       <double>0.8</double>
@@ -77,15 +82,16 @@
       <double>2</double>
       <double>2.3</double>
       <double>2.6</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>20</DN>
-    <OD>26.9</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN20</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>26.9</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>0.5</double>
       <double>0.6</double>
       <double>0.8</double>
@@ -97,15 +103,16 @@
       <double>2</double>
       <double>2.3</double>
       <double>2.6</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>25</DN>
-    <OD>33.7</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN25</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>33.7</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>0.5</double>
       <double>0.6</double>
       <double>0.8</double>
@@ -117,15 +124,16 @@
       <double>2</double>
       <double>2.3</double>
       <double>2.6</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>32</DN>
-    <OD>42.4</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN32</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>42.4</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>0.5</double>
       <double>0.6</double>
       <double>0.8</double>
@@ -137,15 +145,16 @@
       <double>2</double>
       <double>2.3</double>
       <double>2.6</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>40</DN>
-    <OD>48.3</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN40</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>48.3</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>0.6</double>
       <double>0.8</double>
       <double>1</double>
@@ -157,15 +166,16 @@
       <double>2.3</double>
       <double>2.6</double>
       <double>2.9</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>50</DN>
-    <OD>60.3</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN50</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>60.3</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>0.6</double>
       <double>0.8</double>
       <double>1</double>
@@ -177,35 +187,16 @@
       <double>2.3</double>
       <double>2.6</double>
       <double>2.9</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>65</DN>
-    <OD>76.1</OD>
-    <AvailableWallThickness>
-      <double>0.8</double>
-      <double>1</double>
-      <double>1.2</double>
-      <double>1.4</double>
-      <double>1.6</double>
-      <double>1.8</double>
-      <double>2</double>
-      <double>2.3</double>
-      <double>2.6</double>
-      <double>2.9</double>
-      <double>3.2</double>
-    </AvailableWallThickness>
+    <SelectedDN>DN65</SelectedDN>
     <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
-    <IsEN>true</IsEN>
-    <IsASME>false</IsASME>
-    <DN>80</DN>
-    <OD>88.9</OD>
-    <AvailableWallThickness>
+    <outerDiameter>76.1</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>0.8</double>
       <double>1</double>
       <double>1.2</double>
@@ -217,15 +208,18 @@
       <double>2.6</double>
       <double>2.9</double>
       <double>3.2</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>100</DN>
-    <OD>114.3</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN80</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>88.9</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
+      <double>0.8</double>
+      <double>1</double>
       <double>1.2</double>
       <double>1.4</double>
       <double>1.6</double>
@@ -235,17 +229,18 @@
       <double>2.6</double>
       <double>2.9</double>
       <double>3.2</double>
-      <double>3.6</double>
-      <double>4</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>125</DN>
-    <OD>139.7</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN100</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>114.3</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
+      <double>1.2</double>
+      <double>1.4</double>
       <double>1.6</double>
       <double>1.8</double>
       <double>2</double>
@@ -255,17 +250,16 @@
       <double>3.2</double>
       <double>3.6</double>
       <double>4</double>
-      <double>4.5</double>
-      <double>5</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>150</DN>
-    <OD>168.3</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN125</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>139.7</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>1.6</double>
       <double>1.8</double>
       <double>2</double>
@@ -277,15 +271,37 @@
       <double>4</double>
       <double>4.5</double>
       <double>5</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>200</DN>
-    <OD>219.1</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN150</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>168.3</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
+      <double>1.6</double>
+      <double>1.8</double>
+      <double>2</double>
+      <double>2.3</double>
+      <double>2.6</double>
+      <double>2.9</double>
+      <double>3.2</double>
+      <double>3.6</double>
+      <double>4</double>
+      <double>4.5</double>
+      <double>5</double>
+    </availableWallThickness>
+  </DN>
+  <DN>
+    <IsEN>true</IsEN>
+    <IsASME>false</IsASME>
+    <SelectedDN>DN200</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>219.1</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>1.8</double>
       <double>2</double>
       <double>2.3</double>
@@ -297,15 +313,16 @@
       <double>4.5</double>
       <double>5</double>
       <double>5.4</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>250</DN>
-    <OD>273</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN250</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>273</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>2</double>
       <double>2.3</double>
       <double>2.6</double>
@@ -317,35 +334,16 @@
       <double>5</double>
       <double>5.4</double>
       <double>5.6</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>300</DN>
-    <OD>323.9</OD>
-    <AvailableWallThickness>
-      <double>2.6</double>
-      <double>2.9</double>
-      <double>3.2</double>
-      <double>3.6</double>
-      <double>4</double>
-      <double>4.5</double>
-      <double>5</double>
-      <double>5.4</double>
-      <double>5.6</double>
-      <double>6.3</double>
-      <double>7.1</double>
-    </AvailableWallThickness>
+    <SelectedDN>DN300</SelectedDN>
     <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
-    <IsEN>true</IsEN>
-    <IsASME>false</IsASME>
-    <DN>350</DN>
-    <OD>355.6</OD>
-    <AvailableWallThickness>
+    <outerDiameter>323.9</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>2.6</double>
       <double>2.9</double>
       <double>3.2</double>
@@ -357,15 +355,16 @@
       <double>5.6</double>
       <double>6.3</double>
       <double>7.1</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>400</DN>
-    <OD>406.4</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN350</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>355.6</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>2.6</double>
       <double>2.9</double>
       <double>3.2</double>
@@ -377,15 +376,18 @@
       <double>5.6</double>
       <double>6.3</double>
       <double>7.1</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>450</DN>
-    <OD>457</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN400</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>406.4</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
+      <double>2.6</double>
+      <double>2.9</double>
       <double>3.2</double>
       <double>3.6</double>
       <double>4</double>
@@ -395,37 +397,16 @@
       <double>5.6</double>
       <double>6.3</double>
       <double>7.1</double>
-      <double>8</double>
-      <double>8.8</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>500</DN>
-    <OD>508</OD>
-    <AvailableWallThickness>
-      <double>3.2</double>
-      <double>3.6</double>
-      <double>4</double>
-      <double>4.5</double>
-      <double>5</double>
-      <double>5.4</double>
-      <double>5.6</double>
-      <double>6.3</double>
-      <double>7.1</double>
-      <double>8</double>
-      <double>8.8</double>
-    </AvailableWallThickness>
+    <SelectedDN>DN450</SelectedDN>
     <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
-    <IsEN>true</IsEN>
-    <IsASME>false</IsASME>
-    <DN>600</DN>
-    <OD>610</OD>
-    <AvailableWallThickness>
+    <outerDiameter>457</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>3.2</double>
       <double>3.6</double>
       <double>4</double>
@@ -437,15 +418,58 @@
       <double>7.1</double>
       <double>8</double>
       <double>8.8</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>700</DN>
-    <OD>711</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN500</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>508</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
+      <double>3.2</double>
+      <double>3.6</double>
+      <double>4</double>
+      <double>4.5</double>
+      <double>5</double>
+      <double>5.4</double>
+      <double>5.6</double>
+      <double>6.3</double>
+      <double>7.1</double>
+      <double>8</double>
+      <double>8.8</double>
+    </availableWallThickness>
+  </DN>
+  <DN>
+    <IsEN>true</IsEN>
+    <IsASME>false</IsASME>
+    <SelectedDN>DN600</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>610</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
+      <double>3.2</double>
+      <double>3.6</double>
+      <double>4</double>
+      <double>4.5</double>
+      <double>5</double>
+      <double>5.4</double>
+      <double>5.6</double>
+      <double>6.3</double>
+      <double>7.1</double>
+      <double>8</double>
+      <double>8.8</double>
+    </availableWallThickness>
+  </DN>
+  <DN>
+    <IsEN>true</IsEN>
+    <IsASME>false</IsASME>
+    <SelectedDN>DN700</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>711</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>4</double>
       <double>4.5</double>
       <double>5</double>
@@ -457,15 +481,16 @@
       <double>8.8</double>
       <double>10</double>
       <double>11</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>800</DN>
-    <OD>813</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN800</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>813</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>4</double>
       <double>4.5</double>
       <double>5</double>
@@ -477,15 +502,16 @@
       <double>8.8</double>
       <double>10</double>
       <double>11</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>900</DN>
-    <OD>914</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN900</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>914</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>4</double>
       <double>4.5</double>
       <double>5</double>
@@ -497,15 +523,16 @@
       <double>8.8</double>
       <double>10</double>
       <double>11</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>1000</DN>
-    <OD>1016</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN1000</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>1016</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>4</double>
       <double>4.5</double>
       <double>5</double>
@@ -517,55 +544,16 @@
       <double>8.8</double>
       <double>10</double>
       <double>11</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>1050</DN>
-    <OD>1067</OD>
-    <AvailableWallThickness>
-      <double>5</double>
-      <double>5.4</double>
-      <double>5.6</double>
-      <double>6.3</double>
-      <double>7.1</double>
-      <double>8</double>
-      <double>8.8</double>
-      <double>10</double>
-      <double>11</double>
-      <double>12.5</double>
-      <double>14.2</double>
-    </AvailableWallThickness>
+    <SelectedDN>DN1050</SelectedDN>
     <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
-    <IsEN>true</IsEN>
-    <IsASME>false</IsASME>
-    <DN>1100</DN>
-    <OD>1118</OD>
-    <AvailableWallThickness>
-      <double>5</double>
-      <double>5.4</double>
-      <double>5.6</double>
-      <double>6.3</double>
-      <double>7.1</double>
-      <double>8</double>
-      <double>8.8</double>
-      <double>10</double>
-      <double>11</double>
-      <double>12.5</double>
-      <double>14.2</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
-    <IsEN>true</IsEN>
-    <IsASME>false</IsASME>
-    <DN>1200</DN>
-    <OD>1219</OD>
-    <AvailableWallThickness>
+    <outerDiameter>1067</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>5</double>
       <double>5.4</double>
       <double>5.6</double>
@@ -577,15 +565,58 @@
       <double>11</double>
       <double>12.5</double>
       <double>14.2</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>1400</DN>
-    <OD>1422</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN1100</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>1118</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
+      <double>5</double>
+      <double>5.4</double>
+      <double>5.6</double>
+      <double>6.3</double>
+      <double>7.1</double>
+      <double>8</double>
+      <double>8.8</double>
+      <double>10</double>
+      <double>11</double>
+      <double>12.5</double>
+      <double>14.2</double>
+    </availableWallThickness>
+  </DN>
+  <DN>
+    <IsEN>true</IsEN>
+    <IsASME>false</IsASME>
+    <SelectedDN>DN1200</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>1219</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
+      <double>5</double>
+      <double>5.4</double>
+      <double>5.6</double>
+      <double>6.3</double>
+      <double>7.1</double>
+      <double>8</double>
+      <double>8.8</double>
+      <double>10</double>
+      <double>11</double>
+      <double>12.5</double>
+      <double>14.2</double>
+    </availableWallThickness>
+  </DN>
+  <DN>
+    <IsEN>true</IsEN>
+    <IsASME>false</IsASME>
+    <SelectedDN>DN1400</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>1422</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>5.6</double>
       <double>6.3</double>
       <double>7.1</double>
@@ -597,15 +628,16 @@
       <double>14.2</double>
       <double>16</double>
       <double>17.5</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>1600</DN>
-    <OD>1626</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN1600</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>1626</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>6.3</double>
       <double>7.1</double>
       <double>8</double>
@@ -617,15 +649,16 @@
       <double>16</double>
       <double>17.5</double>
       <double>20</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>1800</DN>
-    <OD>1829</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN1800</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>1829</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>7.1</double>
       <double>8</double>
       <double>8.8</double>
@@ -637,15 +670,16 @@
       <double>17.5</double>
       <double>20</double>
       <double>22.2</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>2000</DN>
-    <OD>2032</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN2000</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>2032</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>8</double>
       <double>8.8</double>
       <double>10</double>
@@ -657,15 +691,16 @@
       <double>20</double>
       <double>22.2</double>
       <double>25</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>2200</DN>
-    <OD>2235</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN2200</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>2235</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>8.8</double>
       <double>10</double>
       <double>11</double>
@@ -677,15 +712,16 @@
       <double>22.2</double>
       <double>25</double>
       <double>28</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-  <BasePipe>
+    </availableWallThickness>
+  </DN>
+  <DN>
     <IsEN>true</IsEN>
     <IsASME>false</IsASME>
-    <DN>2500</DN>
-    <OD>2540</OD>
-    <AvailableWallThickness>
+    <SelectedDN>DN2500</SelectedDN>
+    <Standard>EN</Standard>
+    <outerDiameter>2540</outerDiameter>
+    <wallThickness>0</wallThickness>
+    <availableWallThickness>
       <double>10</double>
       <double>11</double>
       <double>12.5</double>
@@ -697,7 +733,6 @@
       <double>25</double>
       <double>28</double>
       <double>30</double>
-    </AvailableWallThickness>
-    <Standard>EN</Standard>
-  </BasePipe>
-</ArrayOfBasePipe>
+    </availableWallThickness>
+  </DN>
+</ArrayOfDN>

@@ -1,6 +1,10 @@
-﻿using EngineeringUnits.Units;
+﻿using EngineeringUnits;
+using EngineeringUnits.Units;
+using SharpFluids;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
@@ -8,55 +12,25 @@ using System.Threading.Tasks;
 
 namespace SizingSuiteControlLibrary.Model.Piping
 {
-    public class BasePipe
+    public class BasePipe: INotifyPropertyChanged
     {
-        private PipeStandard _Standard;
+        public ObservableCollection<DN> DNs {get; set;}
 
-        public bool IsEN;
-        public bool IsASME;
-        public PipeStandard Standard
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void InvokeChange(string property)
         {
-            get
-            {
-                return _Standard;
-            }
-            set
-            {
-                _Standard = value;
-                if (value == PipeStandard.EN)
-                {
-                    IsEN = true;
-                    IsASME = false;
-                }
-                else if(value == PipeStandard.ASME)
-                {
-                    IsEN = false;
-                    IsASME = true;
-                }
-            }
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
-        public int DN;
-        public double OD;
-        public List<double> AvailableWallThickness;
+        #endregion
 
         #region Constructor
         public BasePipe()
         {
-
-        }
-        public BasePipe(PipeStandard standard, int dN, double oD, List<double> availableWallThickness)
-        {
-            Standard = standard;
-            DN = dN;
-            OD = oD;
-            AvailableWallThickness = availableWallThickness;
+            //DNs = (ObservableCollection<DN>)DN.GetAvailableDNs();
         }
         #endregion
 
-        public enum PipeStandard
-        {
-            EN,
-            ASME
-        }
     }
 }
