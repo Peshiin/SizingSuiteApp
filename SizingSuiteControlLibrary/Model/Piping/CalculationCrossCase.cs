@@ -5,12 +5,14 @@ using EngineeringUnits.Units;
 using SharpFluids;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using SizingSuiteControlLibrary.Model.Piping;
 
 namespace SizingSuiteControlLibrary.Model.Piping
 {
@@ -19,7 +21,20 @@ namespace SizingSuiteControlLibrary.Model.Piping
         private Fluid fluid = new Fluid(FluidList.Water);
         public UnitManager UnitManager = new UnitManager();
         public UserControl control;
-        public Pipe pipe { get; set; }
+        public DNcatalogue dnCatalogue { get; set; }
+        private DN _dn;
+        public DN dn 
+        {
+            get
+            { 
+                return _dn;
+            }
+            set 
+            { 
+                _dn = value;
+                InvokeChange(nameof(dn.outerDiameter));
+            }
+        }
 
         public CalculationCross Cross { get; set; }
         public string Name { get; set; }
@@ -161,11 +176,14 @@ namespace SizingSuiteControlLibrary.Model.Piping
         #endregion
 
         #region Constructor
-        public CalculationCrossCase(CalculationCross cross, string name, double pressure, double temperature, double enthalpy, double flowRate, UnitManager unitManager)
+        public CalculationCrossCase(CalculationCross cross, string name, double pressure,
+            double temperature, double enthalpy, double flowRate,
+            UnitManager unitManager)
         {
             Cross = cross;
             Name = name;
             UnitManager = unitManager;
+            dnCatalogue = new DNcatalogue();
 
             this.fluid.UpdatePT(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
                 Temperature.From(temperature, UnitManager.TemperatureSelectedUnit));
@@ -174,12 +192,7 @@ namespace SizingSuiteControlLibrary.Model.Piping
                     Enthalpy.From(enthalpy, UnitManager.EnthalpySelectedUnit));
             this.fluid.MassFlow = MassFlow.From(flowRate, UnitManager.FlowRateSelectedUnit);
 
-            control = new Views.Piping.PipingCalculationLineView();
-            control.DataContext = this;
-
             UnitManager.PropertyChanged += UnitManager_PropertyChanged;
-
-            var x = new DN().availableWallThickness;
         }
         #endregion
     }

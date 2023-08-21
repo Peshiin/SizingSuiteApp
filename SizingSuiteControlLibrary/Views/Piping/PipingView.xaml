@@ -157,12 +157,12 @@
                                 <TextBox x:Name="ReserveTBox" Grid.Column="8"
                                         Text="{Binding Reserve}"/>
                                 <ComboBox x:Name="DNCBox" Grid.Column="9"
-                                          ItemsSource="{Binding pipe.AvailableDNs}"
-                                          SelectedItem="{Binding pipe.dn}"/>
+                                          ItemsSource="{Binding dnCatalogue.AvailableDNs}"
+                                          DisplayMemberPath="Name"/>
                                 <TextBox x:Name="OuterDiameterTBox" Grid.Column="10"
-                                        Text="{Binding OuterDiameter, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                        Text="{Binding dn.outerDiameter, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="WallThicknessTBox" Grid.Column="11"
-                                         Text="{Binding WallThickness, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                         Text="{Binding dn.wallThickness, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="SelectedVelocityTBox" Grid.Column="12"
                                          Text="{Binding SelectedVelocity, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                 <TextBox x:Name="ActualVelocityTBox" Grid.Column="13"

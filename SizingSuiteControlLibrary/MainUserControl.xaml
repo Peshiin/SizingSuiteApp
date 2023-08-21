@@ -15,8 +15,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="TestButton" Grid.Row="1"
-                Click="TestButton_Click"/>
+        <!--<Button x:Name="TestButton" Grid.Row="1"
+                Click="TestButton_Click"/>-->
 
         <ComboBox x:Name="ControlSelection" Grid.Row="0"
                   ItemsSource="{Binding Path=ControlList}"

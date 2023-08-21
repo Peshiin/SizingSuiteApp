@@ -25,7 +25,6 @@ namespace SizingSuiteControlLibrary.ViewModels.Piping
         public UserControl CalculationControlTemplate = new PipingCalculationLineView();
         public UnitManager UnitManager = new UnitManager();
         public ObservableCollection<CalculationCross> Crosses { get; set; }
-        public ObservableCollection<DN> DNs { get; set; }
         public CalculationCross SelectedCross
         {
             get
@@ -42,8 +41,6 @@ namespace SizingSuiteControlLibrary.ViewModels.Piping
         #region Constructor
         public PipingViewModel()
         {
-            string path = @"C:\Users\pechm\Desktop\Other Projects\SizingSuiteApp\SizingSuiteControlLibrary\Model\Piping\Pipes.xml";
-            DNs = (ObservableCollection<DN>)FileHandler.LoadXMLCollection<DN>(path);
             Crosses = new ObservableCollection<CalculationCross>();
         }
         #endregion

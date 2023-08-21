@@ -12,10 +12,10 @@ using Apache.Arrow;
 using System.Reflection;
 using System.Xml.Serialization;
 using SizingSuiteControlLibrary.Model.Piping;
-using System.Windows.Shapes;
 using Microsoft.Office.Interop.Excel;
 using System.IO.Pipes;
 using EngineeringUnits;
+using System.Diagnostics;
 
 namespace SizingSuiteControlLibrary.Model
 {
@@ -24,7 +24,7 @@ namespace SizingSuiteControlLibrary.Model
         public void BasePipesExcelToXML()
         {
             string path = @"C:\Users\pechm\Desktop\Potrubí\Rozměry a hmotnosti podle EN 10220.xlsx";
-            string output = @"C:\Users\pechm\Desktop\Other Projects\SizingSuiteApp\SizingSuiteControlLibrary\Model\Piping\Pipes.xml";
+            string output = Path.Combine(Environment.CurrentDirectory, @"DataStorage\", "AvailableDNs.xml");
             Application excel = new Application();
             Workbook wb = excel.Workbooks.Open(path);
             Worksheet sheet = wb.Worksheets["List1"];
@@ -42,14 +42,15 @@ namespace SizingSuiteControlLibrary.Model
                     WTs.Add(double.Parse(wt));
 
                 DNs.Add(new DN(
+                    "DN"+sheet.Range["A" + i].Value.ToString(),
                     DN.Standards.EN,
-                    (DN.AvailableDNs)sheet.Range["A" + i].Value,
                     sheet.Range["B" + i].Value,
                     WTs.AsEnumerable()));
             }
 
             wb.Close();
             excel.Quit();
+
 
             XmlSerializer serializer = new XmlSerializer(DNs.GetType());
             using (StreamWriter sw = new StreamWriter(output))
