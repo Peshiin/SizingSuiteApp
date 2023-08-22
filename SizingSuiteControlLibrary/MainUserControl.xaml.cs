@@ -33,6 +33,7 @@ namespace SizingSuiteControlLibrary
             InitializeComponent();
             ControlList.Add(new APISteamReliefView(), "Safety valve - API 520 steam relief");
             ControlList.Add(new PipingView(), "Piping");
+            ControlList.Add(new AdminView(), "Administration");
             ControlSelection.ItemsSource = ControlList;
         }
 
@@ -41,12 +42,6 @@ namespace SizingSuiteControlLibrary
         private void ControlSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             contentControl.Content = ControlSelection.SelectedValue;
-        }
-
-        private void TestButton_Click(object sender, RoutedEventArgs e)
-        {
-            ExcelToXMLConverter convertor = new ExcelToXMLConverter();
-            convertor.BasePipesExcelToXML();
         }
     }
 }

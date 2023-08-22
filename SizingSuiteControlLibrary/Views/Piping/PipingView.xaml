@@ -158,14 +158,19 @@
                                         Text="{Binding Reserve}"/>
                                 <ComboBox x:Name="DNCBox" Grid.Column="9"
                                           ItemsSource="{Binding dnCatalogue.AvailableDNs}"
-                                          DisplayMemberPath="Name"/>
+                                          DisplayMemberPath="Name"
+                                          SelectedItem="{Binding dn}"/>
                                 <TextBox x:Name="OuterDiameterTBox" Grid.Column="10"
                                         Text="{Binding dn.outerDiameter, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
-                                <TextBox x:Name="WallThicknessTBox" Grid.Column="11"
-                                         Text="{Binding dn.wallThickness, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                <ComboBox x:Name="WallThicknessCBox" Grid.Column="11"
+                                         ItemsSource="{Binding dn.availableWallThickness}"
+                                          SelectedItem="{Binding dn.wallThickness}"
+                                          IsEditable="True"/>
                                 <TextBox x:Name="SelectedVelocityTBox" Grid.Column="12"
-                                         Text="{Binding SelectedVelocity, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                         Text="{Binding SelectedVelocity, TargetNullValue='',
+                                        StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>    
                                 <TextBox x:Name="ActualVelocityTBox" Grid.Column="13"
+                                         IsEnabled="False"
                                          Text="{Binding ActualVelocity, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                             </Grid>
                         </DataTemplate>

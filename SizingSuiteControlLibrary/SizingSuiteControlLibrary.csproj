@@ -250,6 +250,9 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Piping\PipingViewModel.cs" />
     <Compile Include="ViewModels\SafetyValve\APISteamReliefViewModel.cs" />
+    <Compile Include="Views\AdminView.xaml.cs">
+      <DependentUpon>AdminView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Piping\PipingCalculationLineView.xaml.cs">
       <DependentUpon>PipingCalculationLineView.xaml</DependentUpon>
     </Compile>
@@ -268,6 +271,10 @@
       <DependentUpon>MainUserControl.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AdminView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Piping\PipingCalculationLineView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

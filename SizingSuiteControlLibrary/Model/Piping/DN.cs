@@ -36,6 +36,8 @@ namespace SizingSuiteControlLibrary.Model.Piping
                 }
             }
         }
+        public ObservableCollection<double> availableWallThickness { get; set; }
+
         private Length _outerDiameter = new Length(Length.Zero);
         public double outerDiameter
         {
@@ -46,6 +48,8 @@ namespace SizingSuiteControlLibrary.Model.Piping
             set
             {
                 _outerDiameter = Length.FromMillimeter(value);
+                InvokeChange(nameof(outerDiameter));
+                crossSection = PipeEquations.GetCrossSectionalArea(_outerDiameter, _wallThickness);
             }
         }
 
@@ -59,24 +63,22 @@ namespace SizingSuiteControlLibrary.Model.Piping
             set
             {
                 _wallThickness = Length.FromMillimeter(value);
+                InvokeChange(nameof(wallThickness));
+                crossSection = PipeEquations.GetCrossSectionalArea(_outerDiameter, _wallThickness);
             }
         }
 
-        private List<Length> _availableWallThickness = new List<Length>();
-        public List<double> availableWallThickness 
+        private Area _crossSection = Area.Zero;
+        public Area crossSection
         {
-            get 
+            get
             {
-                List<double> result = new List<double>();
-                foreach(Length n in _availableWallThickness)
-                    result.Add(n.Millimeter);
-                return result;
+                return _crossSection;
             }
-            set
+            set 
             {
-                _availableWallThickness = new List<Length>();
-                foreach(double n in value)
-                    _availableWallThickness.Add(Length.FromMillimeter(n));
+                _crossSection = value;
+                InvokeChange(nameof(crossSection));
             }
         }
 
@@ -102,7 +104,7 @@ namespace SizingSuiteControlLibrary.Model.Piping
             this.Name = name;
             this.Standard = standard;
             this.outerDiameter = outerDiameter;
-            this.availableWallThickness = availableWallThickness.ToList(); 
+            this.availableWallThickness = (ObservableCollection<double>)availableWallThickness; 
         }
         #endregion
 
