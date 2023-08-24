@@ -1,6 +1,4 @@
-﻿using CsvHelper.Configuration;
-using CsvHelper.Configuration.Attributes;
-using EngineeringUnits;
+﻿using EngineeringUnits;
 using EngineeringUnits.Units;
 using SharpFluids;
 using System;
@@ -228,14 +226,14 @@ namespace SizingSuiteControlLibrary.Model.Piping
         {
             if (velocityTriggers.Contains(e.PropertyName))
                 ActualVelocity = PipeEquations.GetSpeed(fluid.MassFlow, fluid.Density, dn.crossSection)
-                    .As(UnitManager.ActualVelocitySelectedUnit);
+                    .As(UnitManager.ActualVelocitySelectedUnit) * (Reserve / NoOfLines);
         }
 
         private void Dn_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (velocityTriggers.Contains(e.PropertyName))
                 ActualVelocity = PipeEquations.GetSpeed(fluid.MassFlow, fluid.Density, dn.crossSection)
-                    .As(UnitManager.ActualVelocitySelectedUnit);
+                    .As(UnitManager.ActualVelocitySelectedUnit) * (Reserve / NoOfLines);
         }
         #endregion
 
@@ -259,7 +257,7 @@ namespace SizingSuiteControlLibrary.Model.Piping
             this.fluid.MassFlow = MassFlow.From(flowRate, UnitManager.FlowRateSelectedUnit);
 
             velocityTriggers = new List<string>(){ nameof(dn.crossSection),
-                nameof(dn),
+                nameof(dn), nameof(NoOfLines), nameof(Reserve),
                 nameof(this.flowRate), nameof(this.pressure),
                 nameof(this.temperature), nameof(this.enthalpy)};
 
