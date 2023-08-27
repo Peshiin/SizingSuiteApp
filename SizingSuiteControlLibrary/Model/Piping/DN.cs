@@ -104,7 +104,7 @@ namespace SizingSuiteControlLibrary.Model.Piping
             this.Name = name;
             this.Standard = standard;
             this.outerDiameter = outerDiameter;
-            this.availableWallThickness = (ObservableCollection<double>)availableWallThickness; 
+            this.availableWallThickness = new ObservableCollection<double>(availableWallThickness); 
         }
         #endregion
 

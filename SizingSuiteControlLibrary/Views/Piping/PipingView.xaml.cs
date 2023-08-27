@@ -42,7 +42,8 @@ namespace SizingSuiteControlLibrary.Views.Piping
         private void LoadCrossesBtn_Click(object sender, RoutedEventArgs e)
         {
             string filePath = FileHandler.OpenDialog();
-            PipingViewModel.LoadCrosses(filePath, ";");      
+            PipingViewModel.LoadCrosses(filePath, ";");
+            CrossSelectionCBox.SelectedItem = PipingViewModel.Crosses.First();
         }
 
         private void CrossSelectionCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

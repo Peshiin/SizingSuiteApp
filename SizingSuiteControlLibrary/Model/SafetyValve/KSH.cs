@@ -13,7 +13,7 @@ namespace SizingSuiteControlLibrary.Model
 {
     public class KSH
     {
-        private string DataPath = @"C:\Users\pechm\Desktop\Other Projects\SizingSuiteApp\SizingSuiteControlLibrary\KSH.csv";
+        private string DataPath = Path.Combine(Environment.CurrentDirectory, @"DataStorage\", "KSH.csv");
         private string[] ColNames = { "RowID", "300", "400", "500", "600", "700", "800", "900", "1000", "1100", "1200" };
         private List<double> TemperatureAxis = new List<double>();
         private List<double> PressureAxis;
