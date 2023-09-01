@@ -9,11 +9,9 @@ using System.Windows.Input;
 
 namespace SizingSuiteApp.ViewModels
 {
-    public class MainViewModel: BaseViewModel, INotifyPropertyChanged
+    public class MainViewModel: BaseViewModel
     {
         private BaseViewModel _selectedViewModel;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public BaseViewModel SelectedViewModel
         {
@@ -30,16 +28,6 @@ namespace SizingSuiteApp.ViewModels
         public MainViewModel()
         {
             UpdateViewCommand = new UpdateViewCommand(this);
-        }
-
-        /// <summary>
-        /// Invokes change of class property
-        /// </summary>
-        /// <param name="property"></param>
-        protected void InvokeChange(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
         }
 
     }
