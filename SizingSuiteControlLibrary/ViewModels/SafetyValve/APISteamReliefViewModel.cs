@@ -223,7 +223,6 @@ namespace SizingSuiteApp.ViewModels.SafetyValve
         #endregion
 
         #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private void APISteamRelief_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -246,17 +245,6 @@ namespace SizingSuiteApp.ViewModels.SafetyValve
         #endregion
 
         #region Methods
-
-        /// <summary>
-        /// Invokes change of class property
-        /// </summary>
-        /// <param name="property"></param>
-        protected void InvokeChange(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
-
         /// <summary>
         /// Gets correction factor for the Napier equation
         /// </summary>

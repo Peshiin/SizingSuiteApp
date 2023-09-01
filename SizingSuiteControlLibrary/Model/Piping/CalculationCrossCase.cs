@@ -11,10 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using SizingSuiteControlLibrary.Model.Piping;
+using SizingSuiteApp.ViewModels;
 
 namespace SizingSuiteControlLibrary.Model.Piping
 {
-    public class CalculationCrossCase : INotifyPropertyChanged
+    public class CalculationCrossCase : BaseViewModel
     {
         private Fluid fluid = new Fluid(FluidList.Water);
         public UnitManager UnitManager = new UnitManager();
@@ -134,8 +135,32 @@ namespace SizingSuiteControlLibrary.Model.Piping
                 InvokeChange(nameof(quality));
             }
         }
-        public int NoOfLines { get; set; } = 1;
-        public double Reserve { get; set; } = 1;
+        private int _noOfLines;
+        public int noOfLines
+        {
+            get
+            {
+                return _noOfLines;
+            }
+            set
+            {
+                _noOfLines = value;
+                InvokeChange(nameof(noOfLines));
+            }
+        }
+        private double _reserve;
+        public double reserve 
+        { 
+            get
+            {
+                return _reserve;
+            }
+            set
+            {
+                _reserve = value;
+                InvokeChange(nameof(reserve));
+            } 
+        }
 
         private Speed _SelectedVelocity;
         private bool velocityIsSetManually;
@@ -187,12 +212,6 @@ namespace SizingSuiteControlLibrary.Model.Piping
         private List<string> velocityTriggers;
 
         #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void InvokeChange(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
 
         private void UnitManager_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -226,14 +245,14 @@ namespace SizingSuiteControlLibrary.Model.Piping
         {
             if (velocityTriggers.Contains(e.PropertyName))
                 ActualVelocity = PipeEquations.GetSpeed(fluid.MassFlow, fluid.Density, dn.crossSection)
-                    .As(UnitManager.ActualVelocitySelectedUnit) * (Reserve / NoOfLines);
+                    .As(UnitManager.ActualVelocitySelectedUnit) * (reserve / noOfLines);
         }
 
         private void Dn_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (velocityTriggers.Contains(e.PropertyName))
                 ActualVelocity = PipeEquations.GetSpeed(fluid.MassFlow, fluid.Density, dn.crossSection)
-                    .As(UnitManager.ActualVelocitySelectedUnit) * (Reserve / NoOfLines);
+                    .As(UnitManager.ActualVelocitySelectedUnit) * (reserve / noOfLines);
         }
         #endregion
 
@@ -246,6 +265,8 @@ namespace SizingSuiteControlLibrary.Model.Piping
             Name = name;
             UnitManager = unitManager;
             dnCatalogue = new DNcatalogue();
+            noOfLines = 1;
+            reserve = 1;
 
             dn = dnCatalogue.AvailableDNs.First();
 
@@ -257,7 +278,7 @@ namespace SizingSuiteControlLibrary.Model.Piping
             this.fluid.MassFlow = MassFlow.From(flowRate, UnitManager.FlowRateSelectedUnit);
 
             velocityTriggers = new List<string>(){ nameof(dn.crossSection),
-                nameof(dn), nameof(NoOfLines), nameof(Reserve),
+                nameof(dn), nameof(noOfLines), nameof(reserve),
                 nameof(this.flowRate), nameof(this.pressure),
                 nameof(this.temperature), nameof(this.enthalpy)};
 

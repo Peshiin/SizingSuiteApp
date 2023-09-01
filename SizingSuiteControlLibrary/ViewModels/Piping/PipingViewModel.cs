@@ -46,16 +46,6 @@ namespace SizingSuiteControlLibrary.ViewModels.Piping
         #endregion
 
         #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
-        /// Invokes change of class property
-        /// </summary>
-        /// <param name="property"></param>
-        protected void InvokeChange(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
         #endregion
 
         #region Methods

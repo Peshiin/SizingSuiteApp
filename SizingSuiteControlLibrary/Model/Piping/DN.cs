@@ -1,4 +1,5 @@
 ﻿using EngineeringUnits;
+using SizingSuiteApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SizingSuiteControlLibrary.Model.Piping
 {
-    public class DN: INotifyPropertyChanged
+    public class DN: BaseViewModel
     {
         public string Name { get; set; }
         private Standards _Standard;
@@ -83,12 +84,6 @@ namespace SizingSuiteControlLibrary.Model.Piping
         }
 
         #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void InvokeChange(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
         #endregion
 
         #region Constructor

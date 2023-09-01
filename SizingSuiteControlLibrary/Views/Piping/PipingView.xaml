@@ -88,7 +88,7 @@
                                    TextWrapping="Wrap"/>
                         <TextBlock x:Name="NoOfLinesTextBlock" Text="No. of lines" Grid.Row="0" Grid.Column="7"
                                    TextWrapping="Wrap"/>
-                        <TextBlock x:Name="BufferTextBlock" Text="Buffer / reserve" Grid.Row="0" Grid.Column="8"
+                        <TextBlock x:Name="BufferTextBlock" Text="Reserve" Grid.Row="0" Grid.Column="8"
                                    TextWrapping="Wrap"/>
                         <TextBlock x:Name="DNTextBlock" Text="DN" Grid.Row="0" Grid.Column="9"
                                    TextWrapping="Wrap"/>
@@ -186,9 +186,9 @@
                                         <TextBox x:Name="QualityTBox" Grid.Column="6"
                                                 Text="{Binding quality, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                         <TextBox x:Name="NoOfLinesTBox" Grid.Column="7"
-                                            Text="{Binding NoOfLines, StringFormat={}{0:0}, ConverterCulture=cs-CZ}"/>
+                                            Text="{Binding noOfLines, StringFormat={}{0:0}, ConverterCulture=cs-CZ}"/>
                                         <TextBox x:Name="ReserveTBox" Grid.Column="8"
-                                            Text="{Binding Reserve}"/>
+                                            Text="{Binding reserve}"/>
                                         <ComboBox x:Name="DNCBox" Grid.Column="9"
                                                 ItemsSource="{Binding dnCatalogue.AvailableDNs}"
                                                 DisplayMemberPath="Name"

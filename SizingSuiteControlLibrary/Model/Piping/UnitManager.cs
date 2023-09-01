@@ -1,5 +1,6 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
+using SizingSuiteApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SizingSuiteControlLibrary.Model.Piping
 {
-    public class UnitManager: INotifyPropertyChanged
+    public class UnitManager: BaseViewModel
     {
         public ObservableCollection<MassFlowUnit> FlowRateUnits { get; private set; }
         public ObservableCollection<PressureUnit> PressureUnits { get; private set; }
@@ -119,12 +120,6 @@ namespace SizingSuiteControlLibrary.Model.Piping
         }
 
         #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void InvokeChange(string property)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
-        }
         #endregion
 
         #region Constructor
