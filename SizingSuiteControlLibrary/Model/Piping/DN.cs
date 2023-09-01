@@ -7,15 +7,25 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace SizingSuiteControlLibrary.Model.Piping
 {
+    [XmlRoot("DN")]
     public class DN: BaseViewModel
     {
+        [XmlElement("Name")]
         public string Name { get; set; }
-        private Standards _Standard;
+
+        [XmlElement("IsEN")]
         public bool IsEN;
+
+        [XmlElement("IsASME")]
         public bool IsASME;
+
+        private Standards _Standard;
+
+        [XmlElement("Standard")]
         public Standards Standard
         {
             get
@@ -37,9 +47,14 @@ namespace SizingSuiteControlLibrary.Model.Piping
                 }
             }
         }
+
+        [XmlArray("availableWallThickness")]
+        [XmlArrayItem("wallThickness")]
         public ObservableCollection<double> availableWallThickness { get; set; }
 
         private Length _outerDiameter = new Length(Length.Zero);
+
+        [XmlElement("outerDiameter")]
         public double outerDiameter
         {
             get
@@ -55,6 +70,8 @@ namespace SizingSuiteControlLibrary.Model.Piping
         }
 
         private Length _wallThickness = new Length(Length.Zero);
+
+        [XmlElement("wallThickness")]
         public double wallThickness
         {
             get
@@ -70,6 +87,8 @@ namespace SizingSuiteControlLibrary.Model.Piping
         }
 
         private Area _crossSection = Area.Zero;
+
+        [XmlElement("crossSection")]
         public Area crossSection
         {
             get

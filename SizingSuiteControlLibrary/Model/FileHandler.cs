@@ -12,6 +12,8 @@ using CsvHelper;
 using System.Diagnostics;
 using CsvHelper.Configuration;
 using System.CodeDom;
+using System.Xml.Linq;
+using EngineeringUnits;
 
 namespace SizingSuiteControlLibrary.Model
 {
@@ -29,18 +31,42 @@ namespace SizingSuiteControlLibrary.Model
                 return null;
         }
 
-        public static ICollection<T> LoadXMLCollection<T>(string path)
+        public static ObservableCollection<DN> LoadDNCollection(string path)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<T>));
-            if (File.Exists(path))
+            ObservableCollection<DN> result = new ObservableCollection<DN>();
+
+            string xmlData = File.ReadAllText(path);
+
+            // Parse the XML data using XDocument
+            XDocument xDocument = XDocument.Parse(xmlData);
+            XElement rootElement = xDocument.Root;
+
+            if (rootElement != null)
             {
-                using (StreamReader reader = new StreamReader(path))
+                foreach (XElement dnElement in rootElement.Elements("DN"))
                 {
-                    return(ICollection<T>)serializer.Deserialize(reader);
+                    XElement avWT = dnElement.Element("availableWallThickness");
+                    Trace.WriteLine(dnElement.Element("availableWallThickness")
+                                .Elements("wallThickness").Count());
+                    DN dn = new DN()
+                    {
+                        Name = (string)dnElement.Element("Name"),
+                        IsEN = (bool)dnElement.Element("IsEN"),
+                        IsASME = (bool)dnElement.Element("IsASME"),
+                        Standard = (DN.Standards)Enum.Parse(typeof(DN.Standards), (string)dnElement.Element("Standard")),
+                        availableWallThickness = new ObservableCollection<double>(
+                            dnElement.Element("availableWallThickness")
+                                .Elements("wallThickness")
+                                .Select(x => (double)x)),
+                        outerDiameter = (double)dnElement.Element("outerDiameter"),
+                        wallThickness = (double)dnElement.Element("wallThickness")
+                    };
+
+                    result.Add(dn);
                 }
             }
-            else
-                return null;
+
+            return result;
         }
 
         public static IEnumerable<T> LoadCSVCollection<T, M>(string path) where M : ClassMap

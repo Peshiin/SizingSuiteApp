@@ -19,7 +19,7 @@ namespace SizingSuiteControlLibrary.Model.Piping
         #region Constructor
         public DNcatalogue()
         {
-            AvailableDNs = (ObservableCollection<DN>)FileHandler.LoadXMLCollection<DN>(SourceFilePath);
+            AvailableDNs = FileHandler.LoadDNCollection(SourceFilePath);
         }
 
         public DNcatalogue(IEnumerable<DN> availableDNs)
