@@ -1,5 +1,4 @@
-﻿using SizingSuiteControlLibrary.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -22,13 +21,5 @@ namespace SizingSuiteApp.ViewModels
                 InvokeChange(nameof(SelectedViewModel));
             }
         }
-
-        public ICommand UpdateViewCommand { get; set; }
-
-        public MainViewModel()
-        {
-            UpdateViewCommand = new UpdateViewCommand(this);
-        }
-
     }
 }

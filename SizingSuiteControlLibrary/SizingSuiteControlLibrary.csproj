@@ -235,7 +235,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\UpdateViewCommand.cs" />
     <Compile Include="Model\ExcelToXMLConverter.cs" />
     <Compile Include="Model\FileHandler.cs" />
     <Compile Include="Model\Piping\BasePipe.cs" />
@@ -357,6 +356,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SharpFluids.3.0.402\build\SharpFluids.targets" Condition="Exists('..\packages\SharpFluids.3.0.402\build\SharpFluids.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
