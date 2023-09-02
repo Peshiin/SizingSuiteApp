@@ -60,16 +60,15 @@ namespace SizingSuiteControlLibrary.Model
             return result.ToList();
         }
 
-        [Obsolete]
         public double GetKSH(double pressure, double temperature)
         {
             try
             {
-                Pressure Pressure = Pressure.FromBars(pressure);
+                Pressure Pressure = Pressure.FromBar(pressure);
                 Temperature Temperature = Temperature.FromDegreesCelsius(temperature);
 
                 temperature = Temperature.DegreesFahrenheit;
-                pressure = Pressure.PoundsForcePerSquareInch;
+                pressure = Pressure.PoundForcePerSquareInch;
 
                 double lowPress = GetNeighbourValue(DFToDoubleList(KSHTable.Columns["RowID"], null),
                     pressure, SearchDirection.Lower);
