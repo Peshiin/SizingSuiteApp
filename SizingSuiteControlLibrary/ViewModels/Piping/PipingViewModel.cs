@@ -23,6 +23,7 @@ namespace SizingSuiteControlLibrary.ViewModels.Piping
     {
         private CalculationCross _selectedCross;
         public UnitManager UnitManager = new UnitManager();
+        public DNcatalogue dnCatalogue = new DNcatalogue();
         private ObservableCollection<CalculationCross> _crosses;
         public ObservableCollection<CalculationCross> crosses 
         { 

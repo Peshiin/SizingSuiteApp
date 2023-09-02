@@ -12,14 +12,12 @@ namespace SizingSuiteControlLibrary.Model.Piping
     public class DNcatalogue
     {
         #region Properties
-        private string SourceFilePath = Path.Combine(Environment.CurrentDirectory, @"DataStorage\", "AvailableDNs.xml");
-        public ObservableCollection<DN> AvailableDNs { get; private set; }
+        public ObservableCollection<DN> AvailableDNs { get; set; }
         #endregion
 
         #region Constructor
         public DNcatalogue()
         {
-            AvailableDNs = FileHandler.LoadDNCollection(SourceFilePath);
         }
 
         public DNcatalogue(IEnumerable<DN> availableDNs)

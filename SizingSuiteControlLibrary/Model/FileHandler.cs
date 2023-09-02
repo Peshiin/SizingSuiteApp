@@ -15,6 +15,7 @@ using System.CodeDom;
 using System.Xml.Linq;
 using EngineeringUnits;
 using Microsoft.VisualBasic.FileIO;
+using System.Windows;
 
 namespace SizingSuiteControlLibrary.Model
 {
@@ -96,7 +97,7 @@ namespace SizingSuiteControlLibrary.Model
 
 
         public static ObservableCollection<CalculationCross> LoadCrosses(string filepath, string delimiter,
-            UnitManager unitManager)
+            UnitManager unitManager, DNcatalogue dnCatalogue)
         {
             ObservableCollection <CalculationCross> Crosses = new ObservableCollection<CalculationCross>();
 
@@ -121,6 +122,11 @@ namespace SizingSuiteControlLibrary.Model
                 {
                     //Processing row
                     string[] fields = parser.ReadFields();
+                    if(fields.Length <= 1)
+                    {
+                        MessageBox.Show("Invalid delimiter seems to be selected");
+                        return null;
+                    }
 
                     // if cross name does not exist in Crosses
                     if (!Crosses.Any(x => x.Name == fields[0]))
@@ -139,7 +145,8 @@ namespace SizingSuiteControlLibrary.Model
                             double.Parse(fields[3], cultureInfo),
                             double.Parse(fields[4], cultureInfo),
                             double.Parse(fields[5], cultureInfo),
-                            unitManager);
+                            unitManager,
+                            dnCatalogue);
                         caseList.Add(crossCase);
                     }
                     catch(Exception)
@@ -149,7 +156,6 @@ namespace SizingSuiteControlLibrary.Model
                 }
             }
             return Crosses;
-        }
-        
+        }        
     }
 }

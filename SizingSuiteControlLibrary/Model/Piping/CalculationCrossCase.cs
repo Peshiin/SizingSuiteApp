@@ -259,12 +259,12 @@ namespace SizingSuiteControlLibrary.Model.Piping
         #region Constructor
         public CalculationCrossCase(CalculationCross cross, string name, double pressure,
             double temperature, double enthalpy, double flowRate,
-            UnitManager unitManager)
+            UnitManager unitManager, DNcatalogue dNcatalogue)
         {
             Cross = cross;
             Name = name;
             UnitManager = unitManager;
-            dnCatalogue = new DNcatalogue();
+            this.dnCatalogue = dNcatalogue;
             noOfLines = 1;
             reserve = 1;
 

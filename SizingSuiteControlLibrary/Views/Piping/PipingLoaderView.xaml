@@ -21,7 +21,12 @@
                               DisplayMemberPath="Name"
                               SelectionChanged="CrossSelectionCBox_SelectionChanged"/>
                 </StackPanel>
-                <Button x:Name="LoadCrossesBtn" Grid.Row="1"
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <Label Content="Delimiter" />
+                    <TextBox x:Name="DelimiterTextBox" Width="50" 
+                             Text="{Binding delimiter}"/>
+                </StackPanel>
+                <Button x:Name="LoadCrossesBtn" Grid.Row="2"
                         Height="25" Width="90"
                         Content="Load crosses"
                         Click="LoadCrossesBtn_Click"/>
