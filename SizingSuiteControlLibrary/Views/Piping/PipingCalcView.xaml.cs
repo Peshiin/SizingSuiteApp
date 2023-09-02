@@ -28,7 +28,16 @@ namespace SizingSuiteControlLibrary.Views.Piping
             InitializeComponent();
             this.viewModel = viewModel;
             DataContext = viewModel.UnitManager;
-            CalculationItemsControl.DataContext = viewModel;
+            CalculationListView.DataContext = viewModel;
+        }
+
+        private void ScrollViewers_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            if (sender == CalculationListView)
+            {
+                HeaderScrollViewer.ScrollToVerticalOffset(e.VerticalOffset);
+                HeaderScrollViewer.ScrollToHorizontalOffset(e.HorizontalOffset);
+            }
         }
     }
 }

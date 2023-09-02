@@ -22,7 +22,6 @@ namespace SizingSuiteControlLibrary.ViewModels.Piping
     public class PipingViewModel : BaseViewModel
     {
         private CalculationCross _selectedCross;
-        //public UserControl CalculationControlTemplate = new PipingCalcView();
         public UnitManager UnitManager = new UnitManager();
         private ObservableCollection<CalculationCross> _crosses;
         public ObservableCollection<CalculationCross> crosses 
@@ -53,7 +52,6 @@ namespace SizingSuiteControlLibrary.ViewModels.Piping
         #region Constructor
         public PipingViewModel()
         {
-            //Crosses = new ObservableCollection<CalculationCross>();
         }
         #endregion
 
