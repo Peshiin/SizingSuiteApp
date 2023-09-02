@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SizingSuiteControlLibrary.ViewModels.Piping;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,16 @@ namespace SizingSuiteControlLibrary.Views.Piping
     /// <summary>
     /// Interaction logic for PipingCalculationLineView.xaml
     /// </summary>
-    public partial class PipingCalculationLineView : UserControl
+    public partial class PipingCalcView : UserControl
     {
-        public PipingCalculationLineView()
+        public PipingViewModel viewModel { get; set; }
+
+        public PipingCalcView(PipingViewModel viewModel)
         {
             InitializeComponent();
+            this.viewModel = viewModel;
+            DataContext = viewModel.UnitManager;
+            CalculationItemsControl.DataContext = viewModel;
         }
     }
 }

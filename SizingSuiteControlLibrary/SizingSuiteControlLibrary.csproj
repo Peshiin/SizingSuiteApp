@@ -253,8 +253,11 @@
     <Compile Include="Views\AdminView.xaml.cs">
       <DependentUpon>AdminView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Piping\PipingCalculationLineView.xaml.cs">
-      <DependentUpon>PipingCalculationLineView.xaml</DependentUpon>
+    <Compile Include="Views\Piping\PipingCalcView.xaml.cs">
+      <DependentUpon>PipingCalcView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Piping\PipingLoaderView.xaml.cs">
+      <DependentUpon>PipingLoaderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Piping\PipingView.xaml.cs">
       <DependentUpon>PipingView.xaml</DependentUpon>
@@ -275,7 +278,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Piping\PipingCalculationLineView.xaml">
+    <Page Include="Views\Piping\PipingCalcView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Piping\PipingLoaderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

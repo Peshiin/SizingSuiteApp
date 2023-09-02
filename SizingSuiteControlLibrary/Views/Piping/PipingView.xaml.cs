@@ -29,26 +29,19 @@ namespace SizingSuiteControlLibrary.Views.Piping
     /// </summary>
     public partial class PipingView : UserControl
     {
-        public PipingViewModel PipingViewModel = new PipingViewModel();
+        public PipingViewModel viewModel = new PipingViewModel();
+        public PipingCalcView calcView { get; set; }
+        public PipingLoaderView loaderView { get; set; }
 
         public PipingView()
         {
             InitializeComponent();
-            DataContext = PipingViewModel.UnitManager;
-            CrossSelectionCBox.DataContext = PipingViewModel;
-            CalculationItemsControl.DataContext = PipingViewModel;
-        }
 
-        private void LoadCrossesBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string filePath = FileHandler.OpenDialog();
-            PipingViewModel.LoadCrosses(filePath, ";");
-            CrossSelectionCBox.SelectedItem = PipingViewModel.Crosses.First();
-        }
+            calcView = new PipingCalcView(viewModel);
+            CalcView.Content = calcView;
 
-        private void CrossSelectionCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            PipingViewModel.SelectedCross = (CalculationCross)CrossSelectionCBox.SelectedItem;
+            loaderView = new PipingLoaderView(viewModel);
+            LoaderView.Content = loaderView;
         }
     }
 }

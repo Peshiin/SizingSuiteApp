@@ -14,6 +14,7 @@ using CsvHelper.Configuration;
 using System.CodeDom;
 using System.Xml.Linq;
 using EngineeringUnits;
+using Microsoft.VisualBasic.FileIO;
 
 namespace SizingSuiteControlLibrary.Model
 {
@@ -93,5 +94,62 @@ namespace SizingSuiteControlLibrary.Model
             }
         }
 
+
+        public static ObservableCollection<CalculationCross> LoadCrosses(string filepath, string delimiter,
+            UnitManager unitManager)
+        {
+            ObservableCollection <CalculationCross> Crosses = new ObservableCollection<CalculationCross>();
+
+            using (TextFieldParser parser = new TextFieldParser(filepath))
+            {
+                ObservableCollection<CalculationCrossCase> caseList =
+                    new ObservableCollection<CalculationCrossCase>();
+                CalculationCross cross = new CalculationCross("dummyCross", "", null);
+                CalculationCrossCase crossCase;
+                CultureInfo cultureInfo = CultureInfo.CreateSpecificCulture("en-US");
+
+                long headerRows = 1;
+
+                parser.TextFieldType = FieldType.Delimited;
+                parser.SetDelimiters(delimiter);
+
+                // ignoring header rows
+                for (long i = 0; i < headerRows; i++)
+                    Trace.WriteLine(parser.ReadLine());
+
+                while (!parser.EndOfData)
+                {
+                    //Processing row
+                    string[] fields = parser.ReadFields();
+
+                    // if cross name does not exist in Crosses
+                    if (!Crosses.Any(x => x.Name == fields[0]))
+                    {
+                        caseList = new ObservableCollection<CalculationCrossCase>();
+                        cross = new CalculationCross(fields[0], fields[1], caseList);
+                        Crosses.Add(cross);
+                    }
+
+                    try
+                    {
+                        crossCase = new CalculationCrossCase(
+                            cross,
+                            fields[1],
+                            double.Parse(fields[2], cultureInfo),
+                            double.Parse(fields[3], cultureInfo),
+                            double.Parse(fields[4], cultureInfo),
+                            double.Parse(fields[5], cultureInfo),
+                            unitManager);
+                        caseList.Add(crossCase);
+                    }
+                    catch(Exception)
+                    {
+                        Trace.WriteLine("Invalid case");
+                    }
+                }
+            }
+            return Crosses;
+        }
+        
     }
 }
