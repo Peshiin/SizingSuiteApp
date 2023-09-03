@@ -23,9 +23,12 @@ namespace SizingSuiteControlLibrary.Views.Piping
     {
         public PipingViewModel viewModel { get; set; }
 
-        public PipingCalcView(PipingViewModel viewModel)
+        public PipingCalcView(PipingViewModel viewModel, double maxHeight = 800, double maxWidth = 1900)
         {
             InitializeComponent();
+            CalculationListView.MaxHeight = maxHeight;
+            ContentItemsControl.MaxWidth = maxWidth;
+
             this.viewModel = viewModel;
             DataContext = viewModel.UnitManager;
             CalculationListView.DataContext = viewModel;

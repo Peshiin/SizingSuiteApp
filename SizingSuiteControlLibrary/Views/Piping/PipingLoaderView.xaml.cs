@@ -36,12 +36,12 @@ namespace SizingSuiteControlLibrary.Views.Piping
 
         private void LoadCrossesBtn_Click(object sender, RoutedEventArgs e)
         {
-            string filePath = FileHandler.OpenDialog();
-
             string SourceFilePath = Path.Combine(Environment.CurrentDirectory, @"DataStorage\", "AvailableDNs.xml");
             viewModel.dnCatalogue.AvailableDNs = FileHandler.LoadDNCollection(SourceFilePath);
 
-            viewModel.crosses = FileHandler.LoadCrosses(filePath, delimiter, viewModel.UnitManager, viewModel.dnCatalogue);
+            string filePath = FileHandler.OpenDialog();
+            if (filePath != null)
+                viewModel.crosses = FileHandler.LoadCrosses(filePath, delimiter, viewModel.UnitManager, viewModel.dnCatalogue);
             if(viewModel.crosses != null)
                 CrossSelectionCBox.SelectedItem = viewModel.crosses.First();
         }

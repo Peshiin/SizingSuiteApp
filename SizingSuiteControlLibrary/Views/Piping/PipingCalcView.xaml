@@ -11,12 +11,14 @@
     <UserControl.Resources>
         <System:Double x:Key="ColumnMinWidth">100</System:Double>
         <GridLength x:Key="ColumnWidth">100</GridLength>
-        <System:Double x:Key="ScrollViewerMaxHeight">400</System:Double>
+        <System:Double x:Key="ListViewMaxHeight">800</System:Double>
+        <System:Double x:Key="ControlMaxWidth">1900</System:Double>
     </UserControl.Resources>
     
     <Grid>
         <ItemsControl x:Name="ContentItemsControl"                      
                       VerticalAlignment="Stretch"
+                      MaxWidth="{StaticResource ControlMaxWidth}"
                       Margin="5">
             <Grid>
                 <Grid.RowDefinitions>
@@ -24,11 +26,11 @@
                     <RowDefinition x:Name="contentRow"/>
                 </Grid.RowDefinitions>
                 <ScrollViewer x:Name="HeaderScrollViewer" Grid.Row="0"
-                            Margin="10 5 30 0"
+                              Margin="10 5 30 0"
                               VerticalScrollBarVisibility="Disabled"
                               HorizontalScrollBarVisibility="Hidden"
                               CanContentScroll="True"
-                            ScrollViewer.ScrollChanged="ScrollViewers_ScrollChanged">
+                              ScrollViewer.ScrollChanged="ScrollViewers_ScrollChanged">
                     <Grid x:Name="CaseGrid">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -121,13 +123,18 @@
                             Grid.Row="1"
                             Margin="5">
                     <ListView x:Name="CalculationListView"
-                              MaxHeight="{StaticResource ScrollViewerMaxHeight}"
+                              MaxHeight="{StaticResource ListViewMaxHeight}"
                               ScrollViewer.CanContentScroll="True"
                               ScrollViewer.VerticalScrollBarVisibility="Auto"
                               ScrollViewer.HorizontalScrollBarVisibility="Auto"
                               ScrollViewer.ScrollChanged="ScrollViewers_ScrollChanged"
                               VerticalContentAlignment="Stretch"
                               ItemsSource="{Binding SelectedCross.Cases}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid x:Name="OneLineCalculationGrid">
@@ -152,40 +159,40 @@
                                     </Grid.ColumnDefinitions>
 
                                     <TextBlock x:Name="CaseNameTextBlock" Grid.Column="0"
-                                                Text="{Binding Name}" TextWrapping="Wrap"/>
+                                            Text="{Binding Name}" TextWrapping="Wrap"/>
                                     <TextBox x:Name="FlowRateTBox" Grid.Column="1"
-                                                Text="{Binding flowRate, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                            Text="{Binding flowRate, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                     <TextBox x:Name="PressureTBox" Grid.Column="2"
-                                                Text="{Binding pressure, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                            Text="{Binding pressure, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                     <TextBox x:Name="TemperatureTBox" Grid.Column="3"
-                                                Text="{Binding temperature, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                            Text="{Binding temperature, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                     <TextBox x:Name="EnthalpyTBox" Grid.Column="4"
-                                                Text="{Binding enthalpy, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                            Text="{Binding enthalpy, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                     <TextBox x:Name="DensityTBox" Grid.Column="5"
-                                                Text="{Binding density, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                            Text="{Binding density, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                     <TextBox x:Name="QualityTBox" Grid.Column="6"
-                                                Text="{Binding quality, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                            Text="{Binding quality, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                     <TextBox x:Name="NoOfLinesTBox" Grid.Column="7"
-                                                Text="{Binding noOfLines, StringFormat={}{0:0}, ConverterCulture=cs-CZ}"/>
+                                            Text="{Binding noOfLines, StringFormat={}{0:0}, ConverterCulture=cs-CZ}"/>
                                     <TextBox x:Name="ReserveTBox" Grid.Column="8"
-                                                Text="{Binding reserve}"/>
+                                            Text="{Binding reserve}"/>
                                     <ComboBox x:Name="DNCBox" Grid.Column="9"
-                                            ItemsSource="{Binding dnCatalogue.AvailableDNs}"
-                                            DisplayMemberPath="Name"
-                                            SelectedItem="{Binding dn}"/>
+                                        ItemsSource="{Binding dnCatalogue.AvailableDNs}"
+                                        DisplayMemberPath="Name"
+                                        SelectedItem="{Binding dn}"/>
                                     <TextBox x:Name="OuterDiameterTBox" Grid.Column="10"
-                                            Text="{Binding dn.outerDiameter, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                        Text="{Binding dn.outerDiameter, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                     <ComboBox x:Name="WallThicknessCBox" Grid.Column="11"
-                                            ItemsSource="{Binding dn.availableWallThickness}"
-                                            SelectedItem="{Binding dn.wallThickness}"
-                                            IsEditable="True"/>
+                                        ItemsSource="{Binding dn.availableWallThickness}"
+                                        SelectedItem="{Binding dn.wallThickness}"
+                                        IsEditable="True"/>
                                     <TextBox x:Name="SelectedVelocityTBox" Grid.Column="12"
-                                            Text="{Binding SelectedVelocity, TargetNullValue='',
-                                            StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                        Text="{Binding SelectedVelocity, TargetNullValue='',
+                                        StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
                                     <TextBox x:Name="ActualVelocityTBox" Grid.Column="13"
-                                            IsEnabled="False"
-                                            Text="{Binding ActualVelocity, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
-                                </Grid>
+                                        IsEnabled="False"
+                                        Text="{Binding ActualVelocity, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"/>
+                                </Grid>                               
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
