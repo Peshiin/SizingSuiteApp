@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.IO;
+using Microsoft.VisualBasic;
 
 namespace SizingSuiteControlLibrary.Views.Piping
 {
@@ -36,9 +37,6 @@ namespace SizingSuiteControlLibrary.Views.Piping
 
         private void LoadCrossesBtn_Click(object sender, RoutedEventArgs e)
         {
-            string SourceFilePath = Path.Combine(Environment.CurrentDirectory, @"DataStorage\", "AvailableDNs.xml");
-            viewModel.dnCatalogue.AvailableDNs = FileHandler.LoadDNCollection(SourceFilePath);
-
             string filePath = FileHandler.OpenDialog();
             if (filePath != null)
                 viewModel.crosses = FileHandler.LoadCrosses(filePath, delimiter, viewModel.UnitManager, viewModel.dnCatalogue);
@@ -49,6 +47,34 @@ namespace SizingSuiteControlLibrary.Views.Piping
         private void CrossSelectionCBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             viewModel.SelectedCross = (CalculationCross)CrossSelectionCBox.SelectedItem;
+        }
+
+        private void AddCrossCaseButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (viewModel.SelectedCross == null)
+            {
+                MessageBox.Show("First, select a cross.");
+                return;
+            }
+
+            string newCaseName = Interaction.InputBox("Select case name", Title: "New case name");
+            if (newCaseName == null)
+                return;
+                
+            viewModel.SelectedCross.Cases.Add(new CalculationCrossCase(viewModel.SelectedCross,
+                newCaseName, 1.0, 120, 1.0, 1.0, viewModel.UnitManager, viewModel.dnCatalogue));
+        }
+
+        private void AddCrossButton_Click(object sender, RoutedEventArgs e)
+        {
+            string newCrossName = Interaction.InputBox("Select cross name", Title: "New cross name");
+            if(newCrossName == null)
+                return;
+
+            var newCross = new CalculationCross(newCrossName, "Description",
+                new System.Collections.ObjectModel.ObservableCollection<CalculationCrossCase>());
+            viewModel.crosses.Add(newCross);
+            CrossSelectionCBox.SelectedItem = newCross;
         }
     }
 }

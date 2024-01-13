@@ -65,7 +65,7 @@ namespace SizingSuiteControlLibrary.Model.Piping
             {
                 _outerDiameter = Length.FromMillimeter(value);
                 InvokeChange(nameof(outerDiameter));
-                crossSection = PipeEquations.GetCrossSectionalArea(_outerDiameter, _wallThickness);
+                crossSection = PipeEquations.GetCrossSectionalAreaByDxt(_outerDiameter, _wallThickness);
             }
         }
 
@@ -82,7 +82,7 @@ namespace SizingSuiteControlLibrary.Model.Piping
             {
                 _wallThickness = Length.FromMillimeter(value);
                 InvokeChange(nameof(wallThickness));
-                crossSection = PipeEquations.GetCrossSectionalArea(_outerDiameter, _wallThickness);
+                crossSection = PipeEquations.GetCrossSectionalAreaByDxt(_outerDiameter, _wallThickness);
             }
         }
 

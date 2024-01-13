@@ -53,6 +53,9 @@ namespace SizingSuiteControlLibrary.ViewModels.Piping
         #region Constructor
         public PipingViewModel()
         {
+            crosses = new ObservableCollection<CalculationCross>();
+            dnCatalogue.AvailableDNs = FileHandler.LoadDNCollection(
+                Path.Combine(Environment.CurrentDirectory, @"DataStorage\", "AvailableDNs.xml"));
         }
         #endregion
 

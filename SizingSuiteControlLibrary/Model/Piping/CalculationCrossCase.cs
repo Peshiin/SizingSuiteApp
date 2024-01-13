@@ -271,13 +271,6 @@ namespace SizingSuiteControlLibrary.Model.Piping
 
             dn = dnCatalogue.AvailableDNs.First();
 
-            this.primaryFluid.UpdatePT(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
-                Temperature.From(temperature, UnitManager.TemperatureSelectedUnit));
-            if(primaryFluid.Quality != -1)
-                this.primaryFluid.UpdatePH(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
-                    Enthalpy.From(enthalpy, UnitManager.EnthalpySelectedUnit));
-            this.primaryFluid.MassFlow = MassFlow.From(flowRate, UnitManager.FlowRateSelectedUnit);
-
             velocityTriggers = new List<string>(){ nameof(dn.crossSection),
                 nameof(dn), nameof(noOfLines), nameof(reserve),
                 nameof(this.flowRate), nameof(this.pressure),
@@ -285,6 +278,23 @@ namespace SizingSuiteControlLibrary.Model.Piping
 
             UnitManager.PropertyChanged += UnitManager_PropertyChanged;
             this.PropertyChanged += CalculationCrossCase_PropertyChanged;
+
+            this.primaryFluid.UpdatePT(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
+                Temperature.From(temperature, UnitManager.TemperatureSelectedUnit));
+            if(primaryFluid.Quality != -1)
+                this.primaryFluid.UpdatePH(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
+                    Enthalpy.From(enthalpy, UnitManager.EnthalpySelectedUnit));
+            this.primaryFluid.MassFlow = MassFlow.From(flowRate, UnitManager.FlowRateSelectedUnit);
+
+            ActualVelocity = PipeEquations.GetSpeed(primaryFluid.MassFlow, primaryFluid.Density, dn.crossSection)
+                .As(UnitManager.ActualVelocitySelectedUnit) * (reserve / noOfLines);
+
+            Area recommendedPipeArea = PipeEquations.GetRecommendedCrossSectionalArea(primaryFluid.MassFlow,
+                primaryFluid.Density, Speed.From(SelectedVelocity, unitManager.SelectedVelocitySelectedUnit));
+            dn = (from Dn in dnCatalogue.AvailableDNs
+                  where Dn.crossSection >= recommendedPipeArea
+                  orderby Dn.crossSection ascending
+                  select Dn).First();
         }
         #endregion
     }
