@@ -17,7 +17,8 @@ namespace SizingSuiteControlLibrary.Model.Piping
 {
     public class CalculationCrossCase : BaseViewModel
     {
-        private Fluid fluid = new Fluid(FluidList.Water);
+        private Fluid secondaryFluid = new Fluid(FluidList.Air);
+        private Fluid primaryFluid = new Fluid(FluidList.Water);
         public UnitManager UnitManager = new UnitManager();
         public UserControl control;
         public DNcatalogue dnCatalogue { get; set; }
@@ -47,11 +48,11 @@ namespace SizingSuiteControlLibrary.Model.Piping
         {
             get
             {
-                return fluid.Pressure.As(UnitManager.PressureSelectedUnit);
+                return primaryFluid.Pressure.As(UnitManager.PressureSelectedUnit);
             }
             set
             {
-                fluid.UpdatePT(Pressure.From(value, UnitManager.PressureSelectedUnit),
+                primaryFluid.UpdatePT(Pressure.From(value, UnitManager.PressureSelectedUnit),
                     Temperature.From(temperature, UnitManager.TemperatureSelectedUnit));
                 InvokeChange(nameof(pressure));
                 InvokeChange(nameof(enthalpy));
@@ -63,11 +64,11 @@ namespace SizingSuiteControlLibrary.Model.Piping
         {
             get
             {
-                return fluid.Temperature.As(UnitManager.TemperatureSelectedUnit);
+                return primaryFluid.Temperature.As(UnitManager.TemperatureSelectedUnit);
             }
             set
             {
-                fluid.UpdatePT(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
+                primaryFluid.UpdatePT(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
                     Temperature.From(value, UnitManager.TemperatureSelectedUnit));
                 InvokeChange(nameof(temperature));
                 InvokeChange(nameof(enthalpy));
@@ -79,11 +80,11 @@ namespace SizingSuiteControlLibrary.Model.Piping
         {
             get
             {
-                return fluid.Enthalpy.As(UnitManager.EnthalpySelectedUnit);
+                return primaryFluid.Enthalpy.As(UnitManager.EnthalpySelectedUnit);
             }
             set
             {
-                fluid.UpdatePH(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
+                primaryFluid.UpdatePH(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
                     Enthalpy.From(value, UnitManager.EnthalpySelectedUnit));
                 InvokeChange(nameof(enthalpy));
                 InvokeChange(nameof(temperature));
@@ -95,11 +96,11 @@ namespace SizingSuiteControlLibrary.Model.Piping
         {
             get
             {
-                return fluid.MassFlow.As(UnitManager.FlowRateSelectedUnit);
+                return primaryFluid.MassFlow.As(UnitManager.FlowRateSelectedUnit);
             }
             set
             {
-                fluid.MassFlow = MassFlow.From(value, UnitManager.FlowRateSelectedUnit);
+                primaryFluid.MassFlow = MassFlow.From(value, UnitManager.FlowRateSelectedUnit);
                 InvokeChange(nameof(flowRate));
             }
         }
@@ -107,11 +108,11 @@ namespace SizingSuiteControlLibrary.Model.Piping
         {
             get
             {
-                return fluid.Density.As(UnitManager.DensitySelectedUnit);
+                return primaryFluid.Density.As(UnitManager.DensitySelectedUnit);
             }
             set
             {
-                fluid.UpdateDP(Density.From(value, UnitManager.DensitySelectedUnit),
+                primaryFluid.UpdateDP(Density.From(value, UnitManager.DensitySelectedUnit),
                     Pressure.From(pressure, UnitManager.PressureSelectedUnit));
                 InvokeChange(nameof(density));
                 InvokeChange(nameof(enthalpy));
@@ -123,11 +124,11 @@ namespace SizingSuiteControlLibrary.Model.Piping
         {
             get
             {
-                return fluid.Quality;
+                return primaryFluid.Quality;
             }
             set
             {
-                fluid.UpdatePX(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
+                primaryFluid.UpdatePX(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
                     value);
                 InvokeChange(nameof(density));
                 InvokeChange(nameof(enthalpy));
@@ -171,9 +172,9 @@ namespace SizingSuiteControlLibrary.Model.Piping
                 if (velocityIsSetManually)
                     return _SelectedVelocity.As(UnitManager.SelectedVelocitySelectedUnit);
                 else
-                    if (fluid.Phase == Phases.Liquid)
+                    if (primaryFluid.Phase == Phases.Liquid)
                     return Speed.FromMeterPerSecond(2.5).As(UnitManager.SelectedVelocitySelectedUnit);
-                else if (fluid.Phase == Phases.Gas)
+                else if (primaryFluid.Phase == Phases.Gas)
                     return Speed.FromMeterPerSecond(40).As(UnitManager.SelectedVelocitySelectedUnit);
                 else
                     return Speed.FromMeterPerSecond(30).As(UnitManager.SelectedVelocitySelectedUnit);
@@ -244,14 +245,14 @@ namespace SizingSuiteControlLibrary.Model.Piping
         private void CalculationCrossCase_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (velocityTriggers.Contains(e.PropertyName))
-                ActualVelocity = PipeEquations.GetSpeed(fluid.MassFlow, fluid.Density, dn.crossSection)
+                ActualVelocity = PipeEquations.GetSpeed(primaryFluid.MassFlow, primaryFluid.Density, dn.crossSection)
                     .As(UnitManager.ActualVelocitySelectedUnit) * (reserve / noOfLines);
         }
 
         private void Dn_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (velocityTriggers.Contains(e.PropertyName))
-                ActualVelocity = PipeEquations.GetSpeed(fluid.MassFlow, fluid.Density, dn.crossSection)
+                ActualVelocity = PipeEquations.GetSpeed(primaryFluid.MassFlow, primaryFluid.Density, dn.crossSection)
                     .As(UnitManager.ActualVelocitySelectedUnit) * (reserve / noOfLines);
         }
         #endregion
@@ -270,12 +271,12 @@ namespace SizingSuiteControlLibrary.Model.Piping
 
             dn = dnCatalogue.AvailableDNs.First();
 
-            this.fluid.UpdatePT(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
+            this.primaryFluid.UpdatePT(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
                 Temperature.From(temperature, UnitManager.TemperatureSelectedUnit));
-            if(fluid.Quality != -1)
-                this.fluid.UpdatePH(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
+            if(primaryFluid.Quality != -1)
+                this.primaryFluid.UpdatePH(Pressure.From(pressure, UnitManager.PressureSelectedUnit),
                     Enthalpy.From(enthalpy, UnitManager.EnthalpySelectedUnit));
-            this.fluid.MassFlow = MassFlow.From(flowRate, UnitManager.FlowRateSelectedUnit);
+            this.primaryFluid.MassFlow = MassFlow.From(flowRate, UnitManager.FlowRateSelectedUnit);
 
             velocityTriggers = new List<string>(){ nameof(dn.crossSection),
                 nameof(dn), nameof(noOfLines), nameof(reserve),
