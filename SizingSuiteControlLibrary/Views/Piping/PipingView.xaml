@@ -14,9 +14,10 @@
         <GridLength x:Key="ColumnWidth">100</GridLength>
         <viewModels:PipingViewModel x:Key="viewModel" />
     </UserControl.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 

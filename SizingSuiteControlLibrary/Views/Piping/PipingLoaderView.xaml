@@ -9,27 +9,51 @@
     <Grid>
         <StackPanel>
             <Grid x:Name="MenuGrid">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Stretch">
-                    <Label Content="Cross No." />
-                    <ComboBox x:Name="CrossSelectionCBox" Width="50" 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Content="Cross No." />
+                    <ComboBox x:Name="CrossSelectionCBox"
+                              Grid.Row="0" Grid.Column="1"
                               ItemsSource="{Binding crosses}"
                               DisplayMemberPath="Name"
                               SelectionChanged="CrossSelectionCBox_SelectionChanged"/>
-                </StackPanel>
-                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Stretch">
-                    <Label Content="Delimiter" />
-                    <TextBox x:Name="DelimiterTextBox" Width="50" 
+
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Content="Delimiter" />
+                    <TextBox x:Name="DelimiterTextBox"
+                             Grid.Row="1" Grid.Column="1"
                              Text="{Binding delimiter}"/>
+
+                    <Button x:Name="LoadCrossesBtn"
+                            Grid.Row="2" Grid.ColumnSpan="2"
+                            Content="Load crosses"
+                            Click="LoadCrossesBtn_Click"/>
+                </Grid>
+
+                <StackPanel Orientation="Vertical"
+                            Grid.Column="1">
+                    <Button  x:Name="AddCrossButton"
+                             Content="Add cross"
+                             Click="AddCrossButton_Click"/>
+                    <Button  x:Name="AddCrossCaseButton"
+                             Content="Add cross case"
+                             Click="AddCrossCaseButton_Click"/>
                 </StackPanel>
-                <Button x:Name="LoadCrossesBtn" Grid.Row="2"
-                        Height="25" Width="90"
-                        Content="Load crosses"
-                        Click="LoadCrossesBtn_Click"/>
             </Grid>
         </StackPanel>
     </Grid>
