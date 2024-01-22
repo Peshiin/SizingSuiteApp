@@ -235,6 +235,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\BaseModel.cs" />
     <Compile Include="Model\DataWriter\IDataWriter.cs" />
     <Compile Include="Model\ExcelToXMLConverter.cs" />
     <Compile Include="Model\FileHandler.cs" />
@@ -247,6 +248,7 @@
     <Compile Include="Model\Piping\PipeEquations.cs" />
     <Compile Include="Model\Piping\PipingDataWriter.cs" />
     <Compile Include="Model\Piping\UnitManager.cs" />
+    <Compile Include="Model\SafetyValve\SafetyValveAPISteamSizingCase.cs" />
     <Compile Include="Model\SafetyValve\SafetyValveDataWriter.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

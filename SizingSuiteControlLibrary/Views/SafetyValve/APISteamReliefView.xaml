@@ -33,7 +33,7 @@
         <TextBox x:Name="TemperatureTBox"
                   Grid.Row="0"  Grid.Column="1"
                   Text="{Binding Temperature_SI, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"
-                  PreviewTextInput="NumberValidationTextBox"
+                  PreviewTextInput="TextBoxNumberValidation"
                   Margin="5"/>
         <Button x:Name="SaturationTemperature_Button"
                 Grid.Row="0" Grid.Column="2"
@@ -46,7 +46,7 @@
         <TextBox x:Name="SetPressureTBox"
                  Grid.Row="1" Grid.Column="1"
                  Text="{Binding PSet_SI, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"
-                 PreviewTextInput="NumberValidationTextBox"
+                 PreviewTextInput="TextBoxNumberValidation"
                  Margin="5"/>
 
         <TextBlock Grid.Row="2" Grid.Column="0"
@@ -55,7 +55,7 @@
         <TextBox x:Name="FlowRateTBox"
                  Grid.Row="2" Grid.Column="1"
                  Text="{Binding MassFlow_SI, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"
-                 PreviewTextInput="NumberValidationTextBox"
+                 PreviewTextInput="TextBoxNumberValidation"
                  Margin="5"/>
 
         <TextBlock Grid.Row="3" Grid.Column="0"
@@ -64,9 +64,7 @@
         <TextBox x:Name="EnthalpyTBox"
                  Grid.Row="3" Grid.Column="1"
                  Text="{Binding Enthalpy_SI, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"
-                 PreviewTextInput="NumberValidationTextBox"
-                 IsEnabled="False"
-                 LostFocus="EnthalpyTBox_LostFocus"
+                 PreviewTextInput="TextBoxNumberValidation"
                  Margin="5"/>
 
         <TextBlock Grid.Row="4" Grid.Column="0"
@@ -75,7 +73,7 @@
         <TextBox x:Name="DrynessTBox"
                  Grid.Row="4" Grid.Column="1"
                  Text="{Binding VapourFraction, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"
-                 PreviewTextInput="NumberValidationTextBox"
+                 PreviewTextInput="TextBoxNumberValidation"
                  IsEnabled="False"
                  Margin="5"/>
 
@@ -86,7 +84,7 @@
         <TextBox x:Name="KdTBox"
                  Text="{Binding Kd, StringFormat={}{0:0.###}, ConverterCulture=cs-CZ}"
                  ToolTip="0,62 for rupture disc sizing"
-                 PreviewTextInput="NumberValidationTextBox"
+                 PreviewTextInput="TextBoxNumberValidation"
                  Grid.Row="5" Grid.Column="1"
                  Margin="5"/>
 
@@ -97,7 +95,7 @@
         <TextBox x:Name="KbTBox"
                  Text="{Binding Kb, StringFormat={}{0:0.##}, ConverterCulture=cs-CZ}"
                  ToolTip="for balanced bellows valves calculate from figure (30) of API 520"
-                 PreviewTextInput="NumberValidationTextBox"
+                 PreviewTextInput="TextBoxNumberValidation"
                  Grid.Row="6" Grid.Column="1"
                  Margin="5"/>
 
@@ -108,7 +106,7 @@
         <TextBox x:Name="KcTBox"
                  Text="{Binding Kc, StringFormat={}{0:0.##}, ConverterCulture=cs-CZ}"
                  ToolTip="0,9 with upstream rupture disc"
-                 PreviewTextInput="NumberValidationTextBox"
+                 PreviewTextInput="TextBoxNumberValidation"
                  Grid.Row="7" Grid.Column="1"
                  Margin="5"/>
 
@@ -119,7 +117,7 @@
         <TextBox x:Name="KNTBox"                 
                  Text="{Binding KN, StringFormat={}{0:0.##}, ConverterCulture=cs-CZ}"
                  IsEnabled="False"
-                 PreviewTextInput="NumberValidationTextBox"
+                 PreviewTextInput="TextBoxNumberValidation"
                  Grid.Row="8" Grid.Column="1"
                  Margin="5"/>
 
@@ -130,7 +128,7 @@
         <TextBox x:Name="KSHTBox"                 
                  Text="{Binding KSH, StringFormat={}{0:0.##}, ConverterCulture=cs-CZ}"
                  IsEnabled="False"
-                 PreviewTextInput="NumberValidationTextBox"
+                 PreviewTextInput="TextBoxNumberValidation"
                  Grid.Row="9" Grid.Column="1"
                  Margin="5"/>
 
@@ -140,7 +138,7 @@
         <TextBox x:Name="DischargeAreaTBox"
                  Grid.Row="10" Grid.Column="1"
                  Text="{Binding DischargeArea_SI, StringFormat={}{0:0.##}, ConverterCulture=cs-CZ}"
-                 PreviewTextInput="NumberValidationTextBox"
+                 PreviewTextInput="TextBoxNumberValidation"
                  IsEnabled="False"
                  Margin="5"/>
 

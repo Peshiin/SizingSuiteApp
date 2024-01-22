@@ -29,18 +29,10 @@ namespace SizingSuiteControlLibrary.Views
         {
             InitializeComponent();
             viewModel = new APISteamReliefViewModel();
-            DataContext = viewModel;
-
-            viewModel.PropertyChanged += viewModel_PropertyChanged;
+            DataContext = viewModel.valve;
         }
 
-        private void viewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == nameof(viewModel.IsSaturated))
-                EnthalpyTBox.IsEnabled = viewModel.IsSaturated;
-        }
-
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        private void TextBoxNumberValidation(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9,-]+");
             e.Handled = regex.IsMatch(e.Text);
@@ -49,11 +41,6 @@ namespace SizingSuiteControlLibrary.Views
         private void SaturationTemperature_Button_Click(object sender, RoutedEventArgs e)
         {
             viewModel.SetSaturationTemperature();
-        }
-
-        private void EnthalpyTBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            viewModel.EnthalpySetManually = true;
         }
     }
 }
