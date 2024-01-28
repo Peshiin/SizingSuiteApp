@@ -10,11 +10,20 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
 
         <Button x:Name="LoadCrossesButton" Grid.Row="1"
                 Content="Load and save crosses to xml"
                 Click="LoadCrossesButton_Click"/>
+
+        <!--<Button x:Name="TestButton" Grid.Row="2"
+                Content="Test"
+                Click="TestButton_Click"/>-->
+        <local:QuantityControlView x:Name="QuantControl"
+                               Description="Relieving pressure"
+                               HelpText="Some help would be nice"/>
+
     </Grid>
 </UserControl>

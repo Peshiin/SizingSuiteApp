@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using SizingSuiteControlLibrary.Model.Piping;
-using SizingSuiteApp.ViewModels;
+using SizingSuiteControlLibrary.ViewModels;
 
 namespace SizingSuiteControlLibrary.Model.Piping
 {

@@ -253,9 +253,13 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Piping\PipingViewModel.cs" />
+    <Compile Include="ViewModels\QuanityControl\PressureControlViewModel.cs" />
     <Compile Include="ViewModels\SafetyValve\APISteamReliefViewModel.cs" />
     <Compile Include="Views\AdminView.xaml.cs">
       <DependentUpon>AdminView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QuantityControlView.xaml.cs">
+      <DependentUpon>QuantityControlView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Piping\PipingCalcView.xaml.cs">
       <DependentUpon>PipingCalcView.xaml</DependentUpon>
@@ -279,6 +283,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\AdminView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QuantityControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

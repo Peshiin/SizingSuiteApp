@@ -2,14 +2,12 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SizingSuiteApp"
-             xmlns:controllibrary="clr-namespace:SizingSuiteControlLibrary;assembly=SizingSuiteControlLibrary"
-             xmlns:views="clr-namespace:SizingSuiteControlLibrary.Views;assembly=SizingSuiteControlLibrary"
-             xmlns:viewmodels="clr-namespace:SizingSuiteApp.ViewModels;assembly=SizingSuiteControlLibrary"
-             xmlns:safetyvalves="clr-namespace:SizingSuiteApp.ViewModels.SafetyValve;assembly=SizingSuiteControlLibrary"
+             xmlns:safetyValveViews ="clr-namespace:SizingSuiteControlLibrary.Views.SafetyValve;assembly=SizingSuiteControlLibrary"
+             xmlns:safetyvalveViewModels="clr-namespace:SizingSuiteControlLibrary.ViewModels.SafetyValve;assembly=SizingSuiteControlLibrary"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <DataTemplate DataType="{x:Type safetyvalves:APISteamReliefViewModel}">
-            <views:APISteamReliefView/>
+        <DataTemplate DataType="{x:Type safetyvalveViewModels:APISteamReliefViewModel}">
+            <safetyValveViews:APISteamReliefView/>
         </DataTemplate>
     </Application.Resources>
 </Application>

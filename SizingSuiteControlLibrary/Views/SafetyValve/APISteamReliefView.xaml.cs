@@ -1,4 +1,4 @@
-﻿using SizingSuiteApp.ViewModels.SafetyValve;
+﻿using SizingSuiteControlLibrary.ViewModels.SafetyValve;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +16,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SizingSuiteControlLibrary.Views
+namespace SizingSuiteControlLibrary.Views.SafetyValve
 {
-    /// <summary>
-    /// Interaction logic for UserControl1.xaml
-    /// </summary>
     public partial class APISteamReliefView : UserControl
     {
         public APISteamReliefViewModel viewModel;

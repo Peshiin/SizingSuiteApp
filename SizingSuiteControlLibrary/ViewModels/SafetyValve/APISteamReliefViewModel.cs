@@ -11,7 +11,7 @@ using System.Diagnostics;
 using Jace;
 using SizingSuiteControlLibrary.Model.SafetyValve;
 
-namespace SizingSuiteApp.ViewModels.SafetyValve
+namespace SizingSuiteControlLibrary.ViewModels.SafetyValve
 {
     public class APISteamReliefViewModel: BaseViewModel, INotifyPropertyChanged
     {

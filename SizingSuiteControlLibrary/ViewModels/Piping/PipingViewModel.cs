@@ -1,6 +1,6 @@
 ﻿using EngineeringUnits.Units;
 using Microsoft.VisualBasic.FileIO;
-using SizingSuiteApp.ViewModels;
+using SizingSuiteControlLibrary.ViewModels;
 using SizingSuiteControlLibrary.Model;
 using SizingSuiteControlLibrary.Model.Piping;
 using SizingSuiteControlLibrary.Views.Piping;

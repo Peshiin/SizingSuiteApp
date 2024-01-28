@@ -1,5 +1,5 @@
 ﻿using EngineeringUnits.Units;
-using SizingSuiteApp.ViewModels;
+using SizingSuiteControlLibrary.ViewModels;
 using SizingSuiteControlLibrary.Model;
 using SizingSuiteControlLibrary.Model.Piping;
 using SizingSuiteControlLibrary.ViewModels.Piping;

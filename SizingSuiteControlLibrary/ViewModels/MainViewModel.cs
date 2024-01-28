@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace SizingSuiteApp.ViewModels
+namespace SizingSuiteControlLibrary.ViewModels
 {
     public class MainViewModel: BaseViewModel
     {

@@ -1,6 +1,6 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
-using SizingSuiteApp.ViewModels;
+using SizingSuiteControlLibrary.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
