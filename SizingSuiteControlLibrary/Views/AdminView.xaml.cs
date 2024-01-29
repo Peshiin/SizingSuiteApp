@@ -1,7 +1,9 @@
 ﻿using EngineeringUnits;
 using EngineeringUnits.Units;
+using Newtonsoft.Json.Linq;
 using SharpFluids;
 using SizingSuiteControlLibrary.Model;
+using UpdateMethods = SizingSuiteControlLibrary.Model.QuantityControl.QuantityControlUpdateMethods;
 using SizingSuiteControlLibrary.ViewModels;
 using SizingSuiteControlLibrary.ViewModels.QuantityControl;
 using System;
@@ -32,6 +34,15 @@ namespace SizingSuiteControlLibrary.Views
         public AdminView()
         {
             InitializeComponent();
+
+            var fluid = new Fluid(FluidList.Water);
+            var press = new Pressure(3.0, PressureUnit.Bar);
+            var temp = new Temperature(150, TemperatureUnit.DegreeCelsius);
+            fluid.UpdatePT(press, temp);
+
+            var pVM = new QuantityControlViewModel(QuantControl, null, new Length(15, LengthUnit.Meter),
+                LengthUnit.Meter, UnitTypebase.ListOf<LengthUnit>().AsEnumerable<UnitTypebase>(),
+                UpdateMethods.BasicQuantityUpdateMethod<Length>);
         }
 
         private void LoadCrossesButton_Click(object sender, RoutedEventArgs e)

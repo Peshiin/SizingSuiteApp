@@ -248,12 +248,13 @@
     <Compile Include="Model\Piping\PipeEquations.cs" />
     <Compile Include="Model\Piping\PipingDataWriter.cs" />
     <Compile Include="Model\Piping\UnitManager.cs" />
+    <Compile Include="Model\QuantityControl\QuantityControlUpdateMethods.cs" />
     <Compile Include="Model\SafetyValve\SafetyValveAPISteamSizingCase.cs" />
     <Compile Include="Model\SafetyValve\SafetyValveDataWriter.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Piping\PipingViewModel.cs" />
-    <Compile Include="ViewModels\QuanityControl\PressureControlViewModel.cs" />
+    <Compile Include="ViewModels\QuanityControl\QuantityControlViewModel.cs" />
     <Compile Include="ViewModels\SafetyValve\APISteamReliefViewModel.cs" />
     <Compile Include="Views\AdminView.xaml.cs">
       <DependentUpon>AdminView.xaml</DependentUpon>
